@@ -1,0 +1,1047 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#f4ebd9">
+<script>try{const t=localStorage.getItem("ctfm-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<title>Stakeholder map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap">
+<style>
+/* Stakeholder map starter — warm paper and olive; SMA typefaces (Anton, PT Serif, Figtree standing in for Proxima Nova) */
+:root{
+  --bg:#faf8f3; --surface:#FFFFFF; --raise:#FFFFFF; --fg:#0e0f0c; --muted:#6c6c66; --line:#e6e2d6; --soft:#f3f0e8; --scrim:rgba(20,18,10,.5); --dot:#e4dfd1; --head:#f4ebd9;
+  --brand:#5b6f00; --brand-soft:#e5eacd; --brand-deep:#2f3a00; --on-brand:#FFFFFF; --ink:#5b6f00; --hl:#c98a00; --sel:#0e0f0c;
+  --g-research:#2648E6; --g-civil:#D1006F; --g-media:#E56A00; --g-business:#6E6A62; --g-boards:#00917B; --g-officials:#7C22A6;
+  --e-role:#a8a395; --e-board:#00917B; --e-work:#2648E6; --e-ally:#D1006F; --e-parl:#7C22A6; --e-media:#E56A00; --e-counter:#a8362f; --e-party:#e2ddcf; --e-academic:#d3cebf;
+  --shadow:0 1px 2px rgba(34,30,15,.05),0 8px 24px rgba(34,30,15,.07);
+  --f-display:"Anton", Impact, "Arial Narrow", sans-serif; --f-body:"Figtree", "Proxima Nova", system-ui, -apple-system, "Segoe UI", sans-serif; --f-serif:"PT Serif", Georgia, serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#15140f; --surface:#1e1c16; --raise:#26241d; --fg:#f3f0e6; --muted:#a8a497; --line:#34312a; --soft:#24221b; --scrim:rgba(0,0,0,.6); --dot:#2a2821; --head:#1e1c16;
+  --brand:#b9c96a; --brand-soft:#2f3518; --brand-deep:#dfe8b0; --on-brand:#15140f; --ink:#c5d47a; --hl:#ffc23d; --sel:#ffffff;
+  --g-research:#8EA2FF; --g-civil:#FF5CB0; --g-media:#FFA24D; --g-business:#B9B3A6; --g-boards:#3FD1B6; --g-officials:#CC8DEB;
+  --e-role:#6b665a; --e-board:#3FD1B6; --e-work:#8EA2FF; --e-ally:#FF5CB0; --e-parl:#CC8DEB; --e-media:#FFA24D; --e-counter:#ff6b5e; --e-party:#3a362d; --e-academic:#433f35;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.4);
+  color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#15140f; --surface:#1e1c16; --raise:#26241d; --fg:#f3f0e6; --muted:#a8a497; --line:#34312a; --soft:#24221b; --scrim:rgba(0,0,0,.6); --dot:#2a2821; --head:#1e1c16;
+  --brand:#b9c96a; --brand-soft:#2f3518; --brand-deep:#dfe8b0; --on-brand:#15140f; --ink:#c5d47a; --hl:#ffc23d; --sel:#ffffff;
+  --g-research:#8EA2FF; --g-civil:#FF5CB0; --g-media:#FFA24D; --g-business:#B9B3A6; --g-boards:#3FD1B6; --g-officials:#CC8DEB;
+  --e-role:#6b665a; --e-board:#3FD1B6; --e-work:#8EA2FF; --e-ally:#FF5CB0; --e-parl:#CC8DEB; --e-media:#FFA24D; --e-counter:#ff6b5e; --e-party:#3a362d; --e-academic:#433f35;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.4);
+  color-scheme:dark }
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:14px;line-height:1.5;display:flex;flex-direction:column;overflow:hidden;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:var(--ink);text-underline-offset:3px;text-decoration-thickness:1px}
+button{font-family:inherit}
+:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+[hidden]{display:none!important}
+
+/* header */
+header.top{padding-block:14px 12px;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));border-bottom:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px 28px;align-items:start;background:var(--head)}
+.brand{min-width:0;grid-column:1;grid-row:1}
+.eyebrow{margin:0 0 8px;font:700 .66rem var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--brand-deep);background:var(--brand-soft);border-radius:999px;padding:4px 12px;display:inline-flex;align-items:center;gap:8px}
+.eyebrow::before{content:none}
+h1{font-family:var(--f-display);font-weight:400;font-size:2.05rem;letter-spacing:.01em;text-transform:uppercase;margin:0;line-height:1;text-wrap:balance}
+.sub{color:var(--muted);margin:6px 0 0;font-size:.86rem;max-width:78ch}
+.hright{display:contents}
+.hbtns{grid-column:2;grid-row:1;display:flex;align-items:center;gap:6px;justify-self:end}
+.dates{grid-column:1/-1;grid-row:2;display:flex;flex-wrap:wrap;gap:6px}
+@media (min-width:1180px){.dates{grid-column:2;grid-row:1;align-self:end;justify-content:flex-end;margin-top:44px;max-width:620px}}
+.date{display:inline-flex;align-items:center;gap:8px;font-size:.76rem;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:3px 10px 3px 4px;max-width:340px;flex:none}
+.date b{font:700 .66rem var(--f-body);letter-spacing:.06em;text-transform:uppercase;background:var(--brand);color:var(--on-brand);border-radius:999px;padding:2px 8px;white-space:nowrap}
+.date span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.iconbtn{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--fg);display:inline-grid;place-items:center;cursor:pointer;transition:background .15s,border-color .15s}
+.iconbtn:hover{border-color:var(--fg)}
+.adminbtn{font:600 .78rem var(--f-body);height:34px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer;display:inline-flex;align-items:center;gap:7px}
+.adminbtn:hover{border-color:var(--fg)}
+.adminbtn[aria-pressed="true"]{background:var(--brand);border-color:var(--brand);color:var(--on-brand)}
+
+main{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) 420px}
+#stage{position:relative;min-width:0;min-height:0;overflow:hidden;display:flex;flex-direction:column;background-color:var(--bg);background-image:radial-gradient(var(--dot) 1px,transparent 1.2px);background-size:22px 22px;background-position:center}
+#graph{width:100%;height:100%;display:block;cursor:grab;touch-action:none}
+#graph:active{cursor:grabbing}
+.toolbar{position:relative;z-index:2;padding:12px max(14px,env(safe-area-inset-right,0px)) 8px max(14px,env(safe-area-inset-left,0px));display:flex;flex-wrap:wrap;gap:8px;align-items:center;flex:none}
+#canvas{position:relative;flex:1;min-height:0}
+#q{font:inherit;padding:8px 12px 8px 34px;border:1px solid var(--line);border-radius:999px;background:var(--surface) no-repeat 12px 50%/14px 14px;color:var(--fg);width:250px;max-width:100%;box-shadow:var(--shadow);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='7' cy='7' r='5' fill='none' stroke='%23998' stroke-width='1.6'/%3E%3Cpath d='M11 11l3.5 3.5' stroke='%23998' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E")}
+#q:focus{outline:none;border-color:var(--brand)}
+.chip{font:600 .74rem var(--f-body);border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:999px;padding:4px 11px 4px 9px;display:inline-flex;align-items:center;gap:6px;cursor:pointer;transition:opacity .15s}
+.chip i{width:8px;height:8px;border-radius:50%;display:inline-block}
+.chip[aria-pressed="false"]{opacity:.45;text-decoration:line-through}
+.viewsw{display:inline-flex;padding:3px;border-radius:999px;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow)}
+.viewsw button{font:700 .72rem var(--f-body);letter-spacing:.08em;text-transform:uppercase;background:none;border:none;color:var(--muted);padding:6px 14px;border-radius:999px;cursor:pointer;transition:background .15s,color .15s}
+.viewsw button[aria-pressed="true"]{background:var(--brand);color:var(--on-brand)}
+.viewsw button:hover:not([aria-pressed="true"]){color:var(--fg)}
+.legend{position:absolute;z-index:3;left:max(14px,env(safe-area-inset-left,0px));bottom:8px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:.74rem;color:var(--muted);display:grid;gap:6px;max-width:min(560px,calc(100% - 28px));box-shadow:var(--shadow)}
+.legend .row{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:center}
+.legend .row span{display:inline-flex;align-items:center;gap:5px}
+.sw{display:inline-block;width:10px;height:10px}
+.zoomctl{position:absolute;z-index:3;right:14px;bottom:10px;display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:999px;box-shadow:var(--shadow);overflow:hidden}
+.zoomctl button{font:600 1rem var(--f-body);width:34px;height:32px;border:none;background:none;color:var(--fg);cursor:pointer}
+.zoomctl button+button{border-top:1px solid var(--line)}
+.zoomctl button:hover{background:var(--soft)}
+
+/* graph */
+.edge{stroke-width:1.1;stroke-opacity:.55;fill:none}
+.t-role{stroke:var(--e-role)} .t-board{stroke:var(--e-board);stroke-dasharray:4 3}
+.t-work{stroke:var(--e-work);stroke-width:1.6} .t-ally{stroke:var(--e-ally);stroke-dasharray:1.5 3}
+.t-parl{stroke:var(--e-parl)} .t-media{stroke:var(--e-media);stroke-dasharray:1.5 3}
+.t-counter{stroke:var(--e-counter);stroke-dasharray:6 3} .t-party{stroke:var(--e-party)} .t-academic{stroke:var(--e-academic)}
+.node{cursor:pointer;outline:none}
+.node:focus,.node:focus-visible{outline:none}
+.node:focus-visible .shape{stroke:var(--sel);stroke-width:3}
+.node .shape{stroke:var(--surface);stroke-width:1.5;transition:stroke-width .15s}
+.node.org .shape{fill:var(--surface);stroke-width:2.2}
+.node.issue .shape{stroke-width:2}
+.node .ring{fill:none;stroke:var(--fg);stroke-width:1.4;stroke-dasharray:2 3;opacity:.7}
+.lbl{font:500 10px var(--f-body);fill:var(--fg);paint-order:stroke;stroke:var(--bg);stroke-width:3px;stroke-linejoin:round;pointer-events:none;opacity:0}
+.node.org .lbl{font:700 10.5px var(--f-body)}
+.node.issue .lbl{font:italic 400 10.5px var(--f-serif)}
+.lbl.on,.node.nb .lbl,.node.sel .lbl,.node.match .lbl,.node.path .lbl{opacity:1}
+.dimmed .node:not(.nb):not(.sel):not(.path){opacity:.13}
+.dimmed .edge:not(.nb):not(.path){stroke-opacity:.05}
+.edge.nb{stroke-opacity:.95;stroke-width:1.8}
+.edge.path{stroke:var(--sel);stroke-opacity:1;stroke-width:3.2;stroke-dasharray:none}
+.node.sel .shape,.node.path .shape{stroke:var(--sel);stroke-width:3}
+.node.match .shape{stroke:var(--sel);stroke-width:3}
+.off{display:none}
+.guide{fill:none;stroke:var(--line);stroke-dasharray:2 6}
+.guide-t{font:700 9.5px var(--f-body);fill:var(--muted);letter-spacing:.14em;text-transform:uppercase}
+.lbl.r1{font:600 12px var(--f-body)}
+.lbl.r2{font:400 11px var(--f-body);fill:var(--muted)}
+.lbl.c{font:400 16px var(--f-display);letter-spacing:.02em;text-transform:uppercase}
+.node.issue .lbl.r1,.node.issue .lbl.r2{font-family:var(--f-serif);font-style:italic;font-weight:400}
+.phone .lbl.r1{font-size:13px}
+.phone .lbl.r2{font-size:12px}
+.phone .lbl.c{font-size:17px}
+.lbl.on{pointer-events:auto;cursor:pointer}
+.node.ring2 .shape{stroke-width:1}
+.edge.lvl1{stroke-opacity:.6}
+.edge.lvl2{stroke-opacity:.28;stroke-width:1}
+.edge.lvl3{stroke-opacity:0}
+.hov .edge.lvl3.on{stroke-opacity:.9}
+.hov .edge:not(.on){stroke-opacity:.05}
+.hov .edge.on{stroke-opacity:1;stroke-width:2}
+.hov .node:not(.on){opacity:.3}
+.node:hover .lbl,.node:focus-visible .lbl{fill:var(--fg);font-weight:700}
+.lbl .kind{font:700 8.5px var(--f-body);fill:var(--muted);letter-spacing:.1em;text-transform:uppercase;font-style:normal}
+.phone .lbl .kind{font-size:9.5px}
+.lbl.c .kind{font-size:9.5px}
+.whole .edge{stroke-opacity:.2;stroke-width:.8}
+.whole .edge.t-work{stroke-width:1.1;stroke-opacity:.3}
+.whole.dimmed .edge.nb{stroke-opacity:.9;stroke-width:1.6}
+.wl{font-family:var(--f-body);font-weight:500;font-size:1em;fill:var(--fg);paint-order:stroke;stroke:var(--bg);stroke-width:.3em;stroke-linejoin:round;pointer-events:none;opacity:0}
+.node.org .wl{font-weight:700}
+.node.issue .wl{font-family:var(--f-serif);font-style:italic;font-weight:400}
+.wl.on,.node:hover .wl,.node:focus-visible .wl{opacity:1}
+.node.sel .wl{font-weight:800}
+.wgrp{font-family:var(--f-display);font-size:1.5em;letter-spacing:.06em;text-transform:uppercase;fill:var(--muted);opacity:.55;pointer-events:none}
+.whole.dimmed .wgrp{opacity:.18}
+
+/* map overlays */
+.focusbar{flex-basis:100%;display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline;font-size:.82rem;color:var(--muted);padding-left:4px;min-height:1.4em}
+.focusbar b{color:var(--fg);font-weight:700}
+.focusbar button{pointer-events:auto}
+.nav{font:600 .78rem var(--f-body);background:none;border:none;color:var(--ink);cursor:pointer;padding:2px 0;display:inline-flex;align-items:center;gap:6px;text-decoration:underline;text-decoration-color:color-mix(in srgb,var(--ink) 35%,transparent);text-underline-offset:3px}
+.nav svg{flex:none}
+.nav.home::before{content:"";width:8px;height:8px;border:1.5px dashed currentColor;border-radius:50%;display:inline-block}
+.nav:hover{text-decoration-color:currentColor}
+.foot{flex:none;padding:6px 60px 10px max(14px,env(safe-area-inset-left,0px));display:flex;gap:4px 12px;align-items:baseline;flex-wrap:wrap;font-size:.74rem;color:var(--muted)}
+.counts{font-variant-numeric:tabular-nums}
+.shapes{display:inline-flex;gap:10px;flex-wrap:wrap}
+.shapes span{display:inline-flex;align-items:center;gap:4px;color:var(--fg)}
+
+/* panel */
+aside{border-left:1px solid var(--line);background:var(--surface);min-width:0;min-height:0;display:flex;flex-direction:column}
+.tabs{display:flex;border-bottom:1px solid var(--line);padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));gap:20px}
+.tabs button{font:700 .74rem var(--f-body);letter-spacing:.1em;text-transform:uppercase;background:none;border:none;color:var(--muted);padding:14px 0 11px;border-bottom:3px solid transparent;cursor:pointer}
+.tabs button[aria-selected="true"]{color:var(--fg);border-bottom-color:var(--brand)}
+.tabs button:hover{color:var(--fg)}
+#panel{flex:1;overflow-y:auto;padding-block:18px 32px;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+#panel h2{font-family:var(--f-display);font-weight:400;font-size:1.95rem;line-height:1.02;letter-spacing:.01em;text-transform:uppercase;margin:0 0 6px;text-wrap:balance}
+#panel h3{font:700 .68rem var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:24px 0 10px;display:flex;align-items:center;gap:8px}
+#panel h3::after{content:"";flex:1;height:1px;background:var(--line)}
+#panel p{margin:0 0 10px;max-width:62ch}
+.role{color:var(--muted);margin:0 0 10px}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 14px}
+.pill{font:600 .72rem var(--f-body);padding:3px 10px;border-radius:999px;border:1px solid var(--line);display:inline-flex;align-items:center;gap:6px;background:var(--surface)}
+.pill i{width:8px;height:8px;border-radius:50%}
+.st-advocate,.st-champion,.st-ally{background:var(--brand-soft);color:var(--brand-deep);border-color:transparent}
+.st-critic,.st-opponent{background:color-mix(in srgb,var(--e-counter) 15%,var(--surface));border-color:transparent}
+.st-gatekeeper{background:color-mix(in srgb,var(--g-officials) 14%,var(--surface));border-color:transparent}
+.why{border-left:3px solid var(--brand);padding:12px 16px;background:var(--brand-soft);color:var(--fg);margin:14px 0;border-radius:0 16px 16px 0;font-family:var(--f-serif);font-style:italic;font-size:.95rem;line-height:1.5}
+.why b{display:block;font:700 .64rem var(--f-body);font-style:normal;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+dl.contact{display:grid;grid-template-columns:96px minmax(0,1fr);gap:8px 12px;margin:0;font-size:.86rem}
+dl.contact dt{color:var(--muted)}
+dl.contact dd{margin:0;min-width:0;overflow-wrap:anywhere}
+.mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.82rem}
+.copy{font:600 .7rem var(--f-body);margin-left:6px;border:1px solid var(--line);background:none;color:var(--fg);border-radius:999px;padding:1px 9px;cursor:pointer}
+.note{font-size:.78rem;color:var(--muted)}
+ul.links{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+ul.links li{display:grid;grid-template-columns:12px minmax(0,1fr);gap:8px;align-items:start;font-size:.86rem}
+ul.links .k{width:10px;height:3px;margin-top:9px;border-radius:2px}
+.lnk{background:none;border:none;padding:0;font:inherit;color:var(--fg);font-weight:700;cursor:pointer;text-align:left;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
+.lnk:hover{text-decoration-color:var(--brand)}
+.ev{color:var(--muted)}
+.back{background:none;border:none;color:var(--muted);font:600 .78rem var(--f-body);padding:0;margin-bottom:12px;cursor:pointer;display:inline-flex;gap:8px;align-items:center;letter-spacing:.04em}
+.back::before{content:"";width:16px;height:1.5px;background:currentColor;display:inline-block}
+.back:hover{color:var(--fg)}
+.stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(88px,1fr));gap:10px;margin:4px 0 8px}
+.stats div{font-size:.74rem;color:var(--muted);background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:12px 14px}
+.stats b{display:block;font:400 1.9rem/1 var(--f-display);color:var(--brand);font-variant-numeric:tabular-nums;margin-bottom:4px}
+.overlap{display:grid;gap:12px}
+.overlap .pair{font-size:.86rem}
+.overlap .who{color:var(--muted)}
+.dir{list-style:none;padding:0;margin:0}
+.dir li{border-bottom:1px solid var(--line)}
+.dir button{width:100%;text-align:left;background:none;border:none;color:var(--fg);font:inherit;padding:9px 0;cursor:pointer;display:grid;grid-template-columns:10px minmax(0,1fr);gap:12px;align-items:center}
+.dir button:hover{background:var(--soft)}
+.dir button i{width:9px;height:9px;border-radius:50%}
+.dir .r{display:block;color:var(--muted);font-size:.78rem}
+.field{display:grid;gap:5px;margin-bottom:12px}
+.field label,.field .lab{font:600 .74rem var(--f-body);color:var(--muted)}
+.field input,.field select,.field textarea,.dirsel{font:inherit;padding:8px 11px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--fg);width:100%}
+.field textarea{min-height:84px;resize:vertical;line-height:1.45}
+.field input:focus,.field select:focus,.field textarea:focus,.dirsel:focus{outline:none;border-color:var(--brand)}
+.field .hint{font-size:.72rem;color:var(--muted)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
+.check{display:flex;gap:8px;align-items:center;font-size:.86rem;margin-bottom:12px}
+.btn{font:700 .82rem var(--f-body);background:var(--brand);color:var(--on-brand);border:1px solid var(--brand);border-radius:999px;padding:8px 16px;cursor:pointer;display:inline-flex;align-items:center;gap:7px}
+.btn:hover{filter:brightness(1.05)}
+.btn:disabled{opacity:.45;cursor:default}
+.btn.ghost{background:none;color:var(--fg);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--fg)}
+.btn.danger{background:none;color:var(--e-counter);border-color:color-mix(in srgb,var(--e-counter) 45%,transparent)}
+.btn.sm{padding:5px 12px;font-size:.76rem}
+.btnrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0}
+ol.path{padding-left:20px;margin:8px 0}
+ol.path li{margin-bottom:6px}
+.edgekeys{display:flex;flex-wrap:wrap;gap:6px}
+.empty{padding:40px 0;text-align:center;color:var(--muted)}
+
+/* admin */
+.adminbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px max(20px,env(safe-area-inset-right,0px)) 10px max(20px,env(safe-area-inset-left,0px));background:color-mix(in srgb,var(--brand) 10%,var(--surface));border-bottom:1px solid color-mix(in srgb,var(--brand) 30%,transparent);font-size:.8rem}
+.adminbar .who{font-weight:700;display:inline-flex;align-items:center;gap:6px;margin-right:auto}
+.adminbar .who::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--brand)}
+.adminbar .state{color:var(--muted)}
+.adminadd{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 6px}
+.editlinks{display:grid;gap:8px;margin:6px 0 12px}
+.editlink{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 8px;padding:10px;border:1px solid var(--line);border-radius:12px;background:var(--bg)}
+.editlink .who{font-weight:700;font-size:.86rem}
+.editlink .x{border:none;background:none;color:var(--muted);cursor:pointer;font-size:1.1rem;line-height:1;padding:2px 6px;border-radius:6px}
+.editlink .x:hover{color:var(--e-counter);background:var(--soft)}
+.editlink .full{grid-column:1/-1;display:grid;grid-template-columns:140px minmax(0,1fr);gap:6px}
+.editlink select,.editlink input{font:inherit;font-size:.8rem;padding:6px 9px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--fg);width:100%;min-width:0}
+.editlink .src{grid-column:1/-1}
+.confirm{border:1px solid color-mix(in srgb,var(--e-counter) 45%,transparent);background:color-mix(in srgb,var(--e-counter) 8%,var(--surface));border-radius:12px;padding:12px;margin:10px 0}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:60;background:var(--fg);color:var(--bg);padding:10px 16px;border-radius:999px;font-size:.84rem;box-shadow:var(--shadow);max-width:calc(100vw - 32px)}
+dialog{border:none;border-radius:18px;padding:0;background:var(--surface);color:var(--fg);box-shadow:0 30px 80px rgba(0,0,0,.35);width:min(520px,calc(100vw - 32px));max-height:calc(100vh - 40px)}
+dialog::backdrop{background:var(--scrim)}
+.dlg{padding:22px 24px 20px}
+.dlg h2{font-family:var(--f-display);font-weight:400;text-transform:uppercase;font-size:1.6rem;margin:0 0 8px;letter-spacing:.01em}
+.dlg ol{padding-left:20px;margin:8px 0 14px;font-size:.86rem;display:grid;gap:4px}
+.dlg .err{color:var(--e-counter);font-size:.82rem;min-height:1.2em;margin:4px 0}
+
+/* name picker */
+.ac{position:fixed;z-index:50;margin:0;padding:4px 0;list-style:none;background:var(--surface);color:var(--fg);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;touch-action:pan-y}
+.ac li{padding:7px 12px;cursor:pointer;display:grid;grid-template-columns:10px minmax(0,1fr);gap:10px;align-items:center;font-size:.86rem;line-height:1.3}
+.ac li i{width:9px;height:9px;border-radius:50%;display:inline-block;box-sizing:border-box}
+.ac li .r{display:block;color:var(--muted);font-size:.74rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ac li[aria-selected="true"],.ac li:hover{background:var(--soft)}
+.ac li.none{color:var(--muted);cursor:default;display:block}
+
+@media (max-width:860px){
+  body{overflow:auto;height:auto}
+  main{display:block}
+  #stage{height:92vh;height:92svh;min-height:600px;border-bottom:1px solid var(--line)}
+  .sub{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .eyebrow{font-size:.62rem;letter-spacing:.1em}
+  aside{border-left:none}
+  #panel{overflow:visible}
+  .toolbar #chips{display:none!important}
+  .toolbar{padding-top:10px;gap:6px}
+  .focusbar{font-size:.78rem}
+  #q{width:100%}
+  h1{font-size:1.7rem}
+  header.top{gap:8px 12px}
+  .sub{font-size:.8rem}
+  .dates{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:-4px;padding-inline:4px}
+  .dates::-webkit-scrollbar{display:none}
+  .adminbtn span{display:none}
+  .adminbtn{width:34px;padding:0;justify-content:center}
+  .viewsw{order:-1}
+}
+@media (min-width:861px) and (max-height:820px){header.top{padding-block:10px 8px}h1{font-size:1.7rem}.sub{display:none}.toolbar{padding-top:10px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+
+<header class="top">
+  <div class="brand">
+    <p class="eyebrow" id="eyebrow">Internal</p>
+    <h1 id="mapTitle">Stakeholder map</h1>
+    <p class="sub" id="sub">Who shapes the debate, and how they connect.</p>
+  </div>
+  <div class="hright">
+    <div class="dates" id="dates" aria-label="Coming up"></div>
+    <div class="hbtns">
+      <button class="iconbtn" id="themeBtn" aria-label="Switch theme"></button>
+      <button class="adminbtn" id="adminBtn" aria-pressed="false"><svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>Admin</span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div id="stage">
+    <div class="toolbar">
+      <div class="viewsw" role="group" aria-label="View"><button id="vRings" aria-pressed="true">Connections</button><button id="vWhole" aria-pressed="false">Whole map</button></div>
+      <input id="q" type="search" placeholder="Put someone in the centre" autocomplete="off" aria-label="Search for a person or organization to put in the centre">
+      <div id="chips" style="display:flex;flex-wrap:wrap;gap:6px"></div>
+      <div id="focusbar" class="focusbar" aria-live="polite"></div>
+    </div>
+    <div id="canvas">
+      <svg id="graph" role="img" aria-label="Network of people and organizations on this map"></svg>
+    <div class="legend" id="legend" hidden>
+      <div class="row" id="rkRings"><span><svg width="34" height="14" aria-hidden="true"><circle cx="6" cy="7" r="5" fill="var(--ink)"/><ellipse cx="22" cy="7" rx="10" ry="5" fill="none" stroke="var(--line)" stroke-dasharray="3 3"/></svg>Centre, then one step, then two steps away</span></div>
+      <div class="row" id="rkWhole" hidden><span>Everyone at once, pulled toward their sector. Bigger shapes have more connections. Zoom in for more names; tap anyone to light up their ties.</span></div>
+      <div class="row"><span><svg width="11" height="11" aria-hidden="true"><circle cx="5.5" cy="5.5" r="5" fill="currentColor"/></svg>Person</span><span><svg width="11" height="11" aria-hidden="true"><rect x="1" y="1" width="9" height="9" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Organization</span><span><svg width="12" height="12" aria-hidden="true"><rect x="3" y="3" width="6" height="6" transform="rotate(45 6 6)" fill="none" stroke="var(--hl)" stroke-width="1.6"/></svg>Live file</span></div>
+      <div class="row"><span>Squares are organizations: think tanks, NGOs, unions, committees, universities and outlets. Their kind is written under the name. Diamonds are live files: a bill, study, report or event that links people.</span></div>
+      <div class="row"><span><i class="sw" style="background:var(--g-research);border-radius:50%"></i>Research</span><span><i class="sw" style="background:var(--g-civil);border-radius:50%"></i>Civil society</span><span><i class="sw" style="background:var(--g-media);border-radius:50%"></i>Media</span><span><i class="sw" style="background:var(--g-business);border-radius:50%"></i>Business</span><span><i class="sw" style="background:var(--g-boards);border-radius:50%"></i>Boards</span><span><i class="sw" style="background:var(--g-officials);border-radius:50%"></i>Officials</span></div>
+      <div class="row" id="partyKey"></div>
+    </div>
+    <div class="zoomctl" aria-label="Zoom">
+      <button id="zin" aria-label="Zoom in">+</button>
+      <button id="zout" aria-label="Zoom out">−</button>
+      <button id="zfit" aria-label="Fit map" style="font-size:.7rem">fit</button>
+    </div>
+    </div>
+    <div class="foot">
+      <button class="nav key" id="keyBtn" aria-expanded="false" aria-controls="legend">Key</button>
+      <span class="shapes" aria-label="What the shapes mean"><span><svg width="10" height="10" aria-hidden="true"><circle cx="5" cy="5" r="4.5" fill="currentColor"/></svg>Person</span><span><svg width="10" height="10" aria-hidden="true"><rect x="1" y="1" width="8" height="8" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>Organization</span><span><svg width="11" height="11" aria-hidden="true"><rect x="3" y="3" width="5" height="5" transform="rotate(45 5.5 5.5)" fill="none" stroke="var(--hl)" stroke-width="1.5"/></svg>Live file</span></span>
+      <span id="counts" class="counts"></span>
+    </div>
+  </div>
+  <aside>
+    <div class="adminbar" id="adminbar" hidden><span class="who">Admin mode</span><span class="state" id="adminState">No unsaved changes</span><button class="btn sm ghost" id="discardBtn" hidden>Discard</button><button class="btn sm" id="publishBtn" disabled>Publish</button></div>
+    <div class="tabs" role="tablist">
+      <button role="tab" id="tab-overview" aria-selected="true">Overview</button>
+      <button role="tab" id="tab-dir" aria-selected="false">Directory</button>
+      <button role="tab" id="tab-path" aria-selected="false">Find a path</button>
+    </div>
+    <div id="panel"></div>
+  </aside>
+</main>
+<dialog id="unlock" aria-labelledby="unlockT"><form class="dlg" method="dialog" id="unlockForm">
+  <h2 id="unlockT">Admin mode</h2>
+  <p class="note" style="font-size:.86rem;color:var(--fg)">Your edits are saved to the map’s GitHub repository, and the site updates for everyone about a minute later. Unlock once with a GitHub key that can only write to this one repository; it stays in this browser.</p>
+  <ol>
+    <li>Open <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">GitHub: new fine-grained token</a>.</li>
+    <li>Name it “Map admin”; set an expiry (one year is fine).</li>
+    <li>Repository access: <b>Only select repositories</b> → <b id="repoName"></b>.</li>
+    <li>Permissions → Repository permissions → <b>Contents: Read and write</b>.</li>
+    <li>Generate, copy the key and paste it here.</li>
+  </ol>
+  <div class="field"><label for="repoIn">Your map’s GitHub repository</label><input id="repoIn" autocomplete="off" spellcheck="false" placeholder="your-github-name/your-repo-name"><span class="hint">Copy it from the address bar on GitHub: the two parts after github.com/</span></div>
+  <div class="field"><label for="tokIn">GitHub key</label><input id="tokIn" type="password" autocomplete="off" spellcheck="false" placeholder="github_pat_…"></div>
+  <p class="err" id="unlockErr" role="alert"></p>
+  <div class="btnrow" style="justify-content:flex-end;margin-bottom:0"><button class="btn ghost" value="cancel" formnovalidate>Cancel</button><button class="btn" id="unlockGo" value="default">Unlock</button></div>
+</form></dialog>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script>
+/* ---------- data: loaded from data.json (or an inline seed when the page is embedded) ---------- */
+let REPO="",SETTINGS={};const DATA_PATH="data.json",REPO_KEY="map-admin-repo";
+let DATA=null,P=[],O=[],E=[],CHECKED="";
+let allNodes=[],byId=new Map(),allLinks=[],adj=new Map(),INST=0,pickable=[];
+
+/* ---------- constants ---------- */
+let PARTY={};
+const GROUPS={research:{n:"Research & think tanks",v:"--g-research"},civil:{n:"Civil society & labour",v:"--g-civil"},politics:{n:"Parliament & parties",v:"--g-officials"},officials:{n:"Public officials",v:"--g-officials"},media:{n:"Media & public voices",v:"--g-media"},business:{n:"Business & wealth holders",v:"--g-business"},boards:{n:"Boards & advisers",v:"--g-boards"}};
+const KIND={think:{n:"Think tank / research",g:"research"},ngo:{n:"NGO / coalition",g:"civil"},labour:{n:"Labour",g:"civil"},parl:{n:"Parliament",g:"politics"},gov:{n:"Government",g:"officials"},party:{n:"Party / chamber",g:"politics"},media:{n:"Media outlet",g:"media"},university:{n:"University",g:"research"},issue:{n:"Live file",g:"issue"}};
+const ETYPE={role:{n:"Works at / leads",v:"--e-role"},board:{n:"Board, adviser, fellow",v:"--e-board"},work:{n:"Joint work & proposals",v:"--e-work"},ally:{n:"Alliance / partner",v:"--e-ally"},parl:{n:"Parliament & government",v:"--e-parl"},media:{n:"Media",v:"--e-media"},counter:{n:"Counterpoint",v:"--e-counter"},party:{n:"Party",v:"--e-party"},academic:{n:"University",v:"--e-academic"}};
+const STANCE={advocate:"Advocate",champion:"Champion",ally:"Ally",expert:"Expert",neutral:"Neutral",gatekeeper:"Decision-maker",critic:"Critic",opponent:"Opponent"};
+
+/* ---------- helpers ---------- */
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const host=u=>{try{return new URL(u).hostname.replace(/^www\./,"")}catch(e){return u}};
+
+/* ---------- map settings: title, subtitle, parties, leads (edit in Admin → Map settings) ---------- */
+function applySettings(d){SETTINGS=d.settings||{};
+  PARTY={};Object.entries(SETTINGS.parties||{}).forEach(([k,v])=>{if(v&&v.n)PARTY[k]={n:v.n,c:v.c||"#888888"}});
+  const t=SETTINGS.title||"Stakeholder map";document.title=t;document.getElementById("mapTitle").textContent=t;
+  document.getElementById("eyebrow").textContent=SETTINGS.eyebrow||"Internal";
+  if(!REPO)REPO=store.get(REPO_KEY)||SETTINGS.repo||"";
+  HOME=O.filter(o=>o.home).map(o=>o.id);if(!HOME.length&&O.length)HOME=[O[0].id];
+  if(typeof focus!=="undefined"&&!focus.length)focus=HOME.slice()}
+
+/* ---------- build graph ---------- */
+function fillOf(n){ if(n.party&&PARTY[n.party]) return PARTY[n.party].c; if(n.type==="person") return `var(${(GROUPS[n.g]||GROUPS.research).v})`; return "var(--surface)"; }
+function strokeOf(n){ if(n.k==="party") return (PARTY[n.party]||{c:"#888"}).c; if(n.type==="issue") return "var(--hl)"; if(n.k==="university") return "var(--e-academic)"; if(n.crit) return "var(--e-counter)"; const g=(KIND[n.k]||{}).g; return `var(${(GROUPS[g]||GROUPS.research).v})`; }
+function rebuild(d){
+  DATA=d;CHECKED=d.checked||"";P=d.people;O=d.orgs;E=d.edges;applySettings(d);
+  allNodes=[...P.map(p=>({...p,type:"person"})),...O.map(o=>({...o,type:o.k==="issue"?"issue":"org"}))];
+  byId=new Map(allNodes.map(n=>[n.id,n]));
+  allLinks=E.filter(e=>byId.has(e.a)&&byId.has(e.b)&&e.a!==e.b).map(e=>({source:e.a,target:e.b,t:ETYPE[e.t]?e.t:"work",l:e.l||"",u:e.u||""}));
+  adj=new Map(allNodes.map(n=>[n.id,[]]));
+  allLinks.forEach(l=>{adj.get(l.source).push({id:l.target,l});adj.get(l.target).push({id:l.source,l})});
+  /* thinly sourced: people with fewer than two verified ties (party labels don't count) */
+  for(let changed=true;changed;){changed=false;allNodes.forEach(n=>{if(n.peri||n.home||n.type!=="person")return;
+    const nb=new Set(adj.get(n.id).filter(a=>{const o=byId.get(a.id);return !o.peri&&o.k!=="party"}).map(a=>a.id));
+    if(nb.size<2){n.peri=true;changed=true}})}
+  allNodes.forEach(n=>{n.deg=adj.get(n.id).length;n.grp=n.type==="person"?n.g:(KIND[n.k]||{}).g;});
+  INST=O.filter(o=>!["issue","party","university","media"].includes(o.k)).length;
+  document.getElementById("sub").textContent=`${SETTINGS.subtitle||"Who shapes the debate, and how they connect"}: ${P.length} people, ${INST} institutions, ${allLinks.length} sourced links.${CHECKED?` Roles checked against primary sources ${CHECKED}.`:""}`;
+  pickable=allNodes.filter(n=>n.k!=="party").map(n=>({n,f:fold(n.n),o:fold((n.o||"")+" "+(n.r||""))})).sort((a,b)=>a.n.n.localeCompare(b.n.n));
+  renderDates();
+  WM=null;
+}
+function renderDates(){const el=document.getElementById("dates");const today=new Date();today.setHours(0,0,0,0);
+  const up=(DATA.dates||[]).filter(x=>x.date&&new Date(x.date+"T12:00:00")>=today).sort((a,b)=>a.date.localeCompare(b.date)).slice(0,3);
+  el.innerHTML=up.map(x=>{const dt=new Date(x.date+"T12:00:00");return `<span class="date" title="${esc(x.text)}"><b>${dt.toLocaleDateString("en-CA",{month:"short",day:"numeric"})}</b><span>${esc(x.text)}</span></span>`}).join("");el.hidden=!up.length}
+
+/* ---------- focus rings ---------- */
+const svg=d3.select("#graph"),stage=document.getElementById("canvas"),stageBox=document.getElementById("stage");
+let W=stage.clientWidth,H=stage.clientHeight;
+svg.attr("viewBox",[-W/2,-H/2,W,H]);
+const root=svg.append("g");
+const gGuide=root.append("g").attr("class","guides"),gLinks=root.append("g"),gNodes=root.append("g");
+let wK=1,wRAF=0;
+const zoom=d3.zoom().scaleExtent([.25,6]).on("zoom",e=>{root.attr("transform",e.transform);if(mode==="whole"){wK=e.transform.k;if(!wRAF)wRAF=requestAnimationFrame(()=>{wRAF=0;wLabels()})}});
+svg.call(zoom).on("dblclick.zoom",null);
+let HOME=[];
+let focus=[],hist=[],mode="rings",pathIds=null,lastPos=new Map(),box={w:800,h:600};
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const GORDER=["research","boards","civil","business","media","politics","officials","issue"];
+const offGroups=new Set(),offEdges=new Set();
+const narrow=()=>W<640;
+const trunc=(s,n)=>s.length>n?s.slice(0,n-1).trimEnd()+"…":s;
+function hidden(n){return n.type==="person"&&offGroups.has(n.g)}
+const eligible=n=>n.k!=="party"&&!hidden(n);
+const NOEXPAND=n=>n.k==="university"||(n.type==="org"&&n.k==="media");
+const labelOf=(n,max)=>trunc(n.n,max);
+
+let CAPS=null;
+function computeRings(F){
+  const Fs=new Set(F),r1=new Map();
+  F.forEach(f=>adj.get(f).forEach(a=>{if(Fs.has(a.id)||offEdges.has(a.l.t))return;const n=byId.get(a.id);if(!eligible(n))return;
+    if(!r1.has(a.id))r1.set(a.id,{n,links:[]});r1.get(a.id).links.push({from:f,l:a.l})}));
+  const caps=CAPS||(narrow()?{r1:12,r2:12}:{r1:20,r2:28});
+  let r1list=[...r1.values()].sort((a,b)=>(b.links.length-a.links.length)||(b.n.deg-a.n.deg));
+  const r1total=r1list.length;r1list=r1list.slice(0,caps.r1);
+  const r1ids=new Set(r1list.map(x=>x.n.id)),r2=new Map();
+  r1list.forEach(x=>{if(NOEXPAND(x.n))return;adj.get(x.n.id).forEach(a=>{if(Fs.has(a.id)||r1.has(a.id)||offEdges.has(a.l.t))return;const n=byId.get(a.id);if(!eligible(n))return;
+    if(!r2.has(a.id))r2.set(a.id,{n,parents:[]});r2.get(a.id).parents.push({from:x.n.id,l:a.l})})});
+  let r2list=[...r2.values()].sort((a,b)=>(b.parents.length-a.parents.length)||(b.n.deg-a.n.deg));
+  const r2total=r2list.length;r2list=r2list.slice(0,caps.r2);
+  return {r1list,r2list,r1total,r2total};
+}
+function geom(){if(narrow()){const lab2=72,rx2=158,w=2*(rx2+lab2+16),sc=W/w,top=0,ry2=Math.max(200,Math.min(330,((H-top-48)/sc)/2-40));return {rx1:58,ry1:Math.round(ry2*.58),rx2,ry2,f1:13,f2:12,t1:12,t2:11,lab2,phone:1}}
+  /* fit the rings to the canvas so labels stay full size instead of the whole picture shrinking */
+  const lab2=105,ry2=Math.round(Math.max(170,Math.min(272,(H-28)/2-34))),rx2=Math.round(Math.max(250,Math.min(338,W/2-lab2-24,ry2*1.35)));
+  return {rx1:Math.round(rx2*.54),ry1:Math.round(ry2*.62),rx2,ry2,f1:12,f2:11,t1:22,t2:17,lab2}}
+/* nodes sit on the left and right arcs of each ring; the top and bottom stay clear for labels */
+function slots(n){const span=140*Math.PI/180,nr=Math.ceil(n/2),nl=n-nr,out=[];
+  for(let i=0;i<nr;i++)out.push(-span/2+(nr===1?span/2:span*i/(nr-1)));
+  for(let i=0;i<nl;i++)out.push(Math.PI-span/2+(nl===1?span/2:span*i/(nl-1)));return out}
+const cw=a=>((a+Math.PI/2)%(2*Math.PI)+2*Math.PI)%(2*Math.PI);
+function place(list,rx,ry,ring){const s=slots(list.length);list.forEach((x,i)=>{const a=s[i];x.a=a;x.px=rx*Math.cos(a);x.py=ry*Math.sin(a);x.ring=ring;x.side=Math.cos(a)>=0?1:-1})}
+function spread(items,gap){[1,-1].forEach(side=>{const arr=items.filter(x=>x.side===side).sort((a,b)=>a.ly-b.ly);for(let i=1;i<arr.length;i++){const need=gap+(arr[i-1].kindTxt?11:0);if(arr[i].ly-arr[i-1].ly<need)arr[i].ly=arr[i-1].ly+need}})}
+/* what kind of thing a square or diamond is, shown under its name */
+const KSHORT={think:"think tank",ngo:"NGO",labour:"union",parl:"Parliament",gov:"government",media:"media outlet",university:"university",issue:"live file"};
+const kindOf=n=>n.type==="person"?"":(KSHORT[n.k]||"");
+
+function layoutRings(){
+  const g=geom();
+  /* how many names each ring can hold without crowding, from its height */
+  CAPS=g.phone?null:{r1:Math.max(8,Math.min(18,2*Math.floor(2*g.ry1*.94/27))),r2:Math.max(10,Math.min(28,2*Math.floor(2*g.ry2*.94/15)))};
+  const R=computeRings(focus);
+  R.r1list.sort((a,b)=>(GORDER.indexOf(a.n.grp)-GORDER.indexOf(b.n.grp))||(b.n.deg-a.n.deg));
+  place(R.r1list,g.rx1,g.ry1,1);
+  const ang=new Map(R.r1list.map(x=>[x.n.id,x.a]));
+  R.r2list.forEach(x=>{let sx=0,sy=0;x.parents.forEach(p=>{const a=ang.get(p.from);if(a!=null){sx+=Math.cos(a);sy+=Math.sin(a)}});x.want=cw(Math.atan2(sy,sx))});
+  R.r2list.sort((a,b)=>a.want-b.want);
+  const s2=slots(R.r2list.length).map(a=>({a,k:cw(a)})).sort((a,b)=>a.k-b.k);
+  R.r2list.forEach((x,i)=>{const a=s2[i].a;x.a=a;x.px=g.rx2*Math.cos(a);x.py=g.ry2*Math.sin(a);x.ring=2;x.side=Math.cos(a)>=0?1:-1});
+  const centre=focus.map((id,i)=>({n:byId.get(id),ring:0,px:focus.length===1?0:(i?1:-1)*(narrow()?34:56),py:0}));
+  const items=[...centre,...R.r1list,...R.r2list];
+  items.forEach(x=>{x.id=x.n.id;x.r=x.ring===0?11:x.ring===1?7:5;
+    if(x.ring===0){const two=focus.length>1,up=false;x.lx=two?x.px+(x.px<0?1:-1)*(x.r+5):x.px;x.ly=x.py+x.r+(two?19:17);x.anchor=two?(x.px<0?"end":"start"):"middle";x.label=two?((byId.get(x.id)||{}).short||labelOf(x.n,12)):labelOf(x.n,narrow()?18:30);x.cls="c"}
+    else{x.lx=x.px+x.side*(x.r+6);x.ly=x.py+4;x.anchor=x.side>0?"start":"end";x.label=labelOf(x.n,x.ring===1?g.t1:g.t2);x.cls=x.ring===1?"r1":"r2"}
+    x.kindTxt=(x.ring===1||(x.ring===0&&focus.length===1))?kindOf(x.n):"";});
+  spread(R.r1list,g.f1+3);spread(R.r2list,g.f2+3);
+  const links=[];
+  R.r1list.forEach(x=>x.links.forEach(k=>links.push({key:k.from+"|"+x.id,a:k.from,b:x.id,t:k.l.t,lvl:1})));
+  /* outer-ring people get one line, to their nearest inner-ring contact; the rest appear on hover */
+  R.r2list.forEach(x=>{let best=null,bd=9;x.parents.forEach(k=>{const p=R.r1list.find(r=>r.n.id===k.from);if(!p)return;const d=Math.abs(Math.atan2(Math.sin(p.a-x.a),Math.cos(p.a-x.a)));if(d<bd){bd=d;best=k.from}});
+    x.parents.forEach(k=>links.push({key:k.from+"|"+x.id,a:k.from,b:x.id,t:k.l.t,lvl:k.from===best?2:3}))});
+  box={w:2*(g.rx2+g.lab2+(g.phone?16:24)),h:2*(g.ry2+(g.phone?26:34))};
+  return {items,links,R,g};
+}
+function layoutPath(p){
+  const nr=narrow(),n=p.length,items=p.map((id,i)=>{const t=n===1?0:i/(n-1)-.5;
+    const x=nr?0:t*Math.min(720,(n-1)*170),y=nr?t*Math.min(520,(n-1)*110):-Math.cos(t*Math.PI)*50+25;
+    return {n:byId.get(id),id,ring:i===0||i===n-1?0:1,px:x,py:y,r:i===0||i===n-1?11:8,lx:nr?x+16:x,ly:nr?y+4:y+28,anchor:nr?"start":"middle",label:labelOf(byId.get(id),24),cls:"c"}});
+  const links=[];for(let i=0;i<n-1;i++){const l=adj.get(p[i]).find(x=>x.id===p[i+1]).l;links.push({key:p[i]+"|"+p[i+1],a:p[i],b:p[i+1],t:l.t,lvl:1,lab:l.l})}
+  box=nr?{w:300,h:Math.min(520,(n-1)*110)+120}:{w:Math.min(720,(n-1)*170)+220,h:220};
+  return {items,links};
+}
+function drawShape(sel,x){const d=x.n,r=x.r;
+  if(d.home&&x.ring===0)sel.append("circle").attr("class","ring").attr("r",r+5);
+  if(d.type==="person")sel.append("circle").attr("class","shape").attr("r",r).style("fill",fillOf(d));
+  else if(d.type==="issue")sel.append("rect").attr("class","shape").attr("x",-r*.85).attr("y",-r*.85).attr("width",r*1.7).attr("height",r*1.7).attr("transform","rotate(45)").style("fill","var(--surface)").style("stroke",strokeOf(d));
+  else sel.append("rect").attr("class","shape").attr("x",-r).attr("y",-r).attr("width",r*2).attr("height",r*2).attr("rx",3).style("stroke",strokeOf(d));
+  sel.append("text").attr("class","lbl on");sel.append("title");}
+let counts={};
+function render(){
+  if(mode==="whole"){renderWhole();return}
+  gWhole.style("display","none");[gGuide,gLinks,gNodes].forEach(g=>g.style("display",null));
+  const L=mode==="path"?layoutPath(pathIds):layoutRings();
+  const pos=new Map(L.items.map(x=>[x.id,x]));
+  const dur=reduce?0:450;
+  /* guides */
+  const gd=mode==="rings"?[{rx:L.g.rx1,ry:L.g.ry1,t:L.g.phone?"":"one step"},{rx:L.g.rx2,ry:L.g.ry2,t:"two steps"}]:[];
+  svg.classed("phone",!!(L.g&&L.g.phone));
+  gGuide.selectAll("ellipse").data(gd).join("ellipse").attr("class","guide").attr("rx",d=>d.rx).attr("ry",d=>d.ry);
+  gGuide.selectAll("text").data(gd).join("text").attr("class","guide-t").attr("text-anchor","middle").attr("y",d=>-d.ry+4).text(d=>d.t);
+  /* links */
+  const old=k=>lastPos.get(k)||{px:0,py:0};
+  const ls=gLinks.selectAll("line").data(L.links,d=>d.key).join(
+    en=>en.append("line").attr("x1",d=>old(d.a).px).attr("y1",d=>old(d.a).py).attr("x2",d=>old(d.a).px).attr("y2",d=>old(d.a).py).style("opacity",0),
+    up=>up,ex=>ex.transition().duration(dur/2).style("opacity",0).remove());
+  ls.attr("class",d=>`edge t-${d.t} lvl${d.lvl}`).transition().duration(dur)
+    .attr("x1",d=>pos.get(d.a).px).attr("y1",d=>pos.get(d.a).py).attr("x2",d=>pos.get(d.b).px).attr("y2",d=>pos.get(d.b).py).style("opacity",null);
+  /* nodes */
+  const ns=gNodes.selectAll("g.node").data(L.items,d=>d.id+"·"+(d.n.home&&d.ring===0?"h":"")).join(
+    en=>{const g=en.append("g").attr("tabindex",0).attr("role","button").attr("transform",d=>{const o=lastPos.get(d.id)||{px:0,py:0};return `translate(${o.px},${o.py})`}).style("opacity",0);g.each(function(d){drawShape(d3.select(this),d)});return g},
+    up=>up,ex=>ex.transition().duration(dur/2).style("opacity",0).remove());
+  ns.attr("class",d=>`node ${d.n.type} ring${d.ring}`).attr("aria-label",d=>d.n.n)
+    .on("click",(e,d)=>{e.stopPropagation();tapNode(d.id)}).on("keydown",(e,d)=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();tapNode(d.id)}})
+    .on("mouseenter",(e,d)=>hover(d.id)).on("mouseleave",()=>hover(null));
+  ns.select("text.lbl").attr("class",d=>"lbl on "+d.cls).attr("text-anchor",d=>d.anchor).attr("x",d=>d.lx-d.px).attr("y",d=>d.ly-d.py)
+    .each(function(d){const t=d3.select(this);t.text(null);t.append("tspan").text(d.label);if(d.kindTxt)t.append("tspan").attr("class","kind").attr("x",d.lx-d.px).attr("dy","1.15em").text(d.kindTxt)});
+  ns.select("title").text(d=>d.n.n+(d.n.r?" — "+d.n.r:""));
+  ns.transition().duration(dur).attr("transform",d=>`translate(${d.px},${d.py})`).style("opacity",1);
+  lastPos=new Map(L.items.map(x=>[x.id,{px:x.px,py:x.py}]));
+  counts=L.R?{r1:L.R.r1list.length,r1t:L.R.r1total,r2:L.R.r2list.length,r2t:L.R.r2total}:{};
+  updateBar();fit(reduce?0:450);
+}
+function hover(id){if(!id){svg.classed("hov",false);gLinks.selectAll("line").classed("on",false);gNodes.selectAll("g.node").classed("on",false);return}
+  const on=new Set([id]);gLinks.selectAll("line").classed("on",d=>{const h=d.a===id||d.b===id;if(h){on.add(d.a);on.add(d.b)}return h});
+  gNodes.selectAll("g.node").classed("on",d=>on.has(d.id));svg.classed("hov",true)}
+/* ---------- whole map: everyone at once, laid out once and then static ---------- */
+const gWhole=root.append("g").attr("class","whole").style("display","none");
+const wG={grp:gWhole.append("g"),links:gWhole.append("g"),nodes:gWhole.append("g")};
+let WM=null,wSel=null,wPath=null,ringsBack={mode:"rings",pathIds:null};
+const WANCH={research:[-.32,-.06],boards:[-.06,.04],civil:[.04,.33],politics:[.36,.02],officials:[.26,-.28],media:[.0,-.36],business:[-.32,.31],issue:[.1,-.03]};
+const WGNAME={research:"Research",boards:"Boards & advisers",civil:"Civil society & labour",politics:"Parliament",officials:"Officials",media:"Media",business:"Business"};
+const wAspect=()=>Math.max(.65,Math.min(2.2,W/Math.max(1,H)));
+const wKey=()=>Math.round(wAspect()*4);
+function buildWhole(){
+  Object.values(wG).forEach(g=>g.selectAll("*").remove());
+  const nodes=allNodes.filter(n=>n.k!=="party").map(n=>({id:n.id,n,r:n.type==="person"?3.4+Math.sqrt(n.deg)*1.25:n.type==="issue"?6+Math.sqrt(n.deg)*.9:n.k==="university"?5:6+Math.sqrt(n.deg)*1.35}));
+  const ids=new Set(nodes.map(x=>x.id));
+  const links=allLinks.filter(l=>l.t!=="party"&&ids.has(l.source)&&ids.has(l.target)).map(l=>({source:l.source,target:l.target,a:l.source,b:l.target,t:l.t}));
+  /* the layout takes the shape of the screen it is drawn on */
+  const nar=narrow(),asp=wAspect(),SW=1050*Math.sqrt(asp),SH=1050/Math.sqrt(asp),A=d=>WANCH[d.n.grp]||[0,0];
+  nodes.forEach((d,i)=>{const a=A(d),ang=i*2.39996,rad=9*Math.sqrt(i%50+1);d.x=a[0]*SW+rad*Math.cos(ang);d.y=a[1]*SH+rad*Math.sin(ang)});
+  d3.forceSimulation(nodes).stop()
+    .force("link",d3.forceLink(links).id(d=>d.id).distance(l=>l.t==="role"?34:l.t==="academic"?56:62).strength(l=>l.t==="academic"||l.t==="media"?.15:.4))
+    .force("charge",d3.forceManyBody().strength(d=>d.n.type==="person"?-95:-250).distanceMax(420))
+    .force("collide",d3.forceCollide(d=>d.r+4.5))
+    .force("x",d3.forceX(d=>A(d)[0]*SW).strength(.13))
+    .force("y",d3.forceY(d=>A(d)[1]*SH).strength(.13))
+    .tick(380);
+  /* stretch the result to the screen's shape, then settle any shapes the stretch pushed together */
+  {const xs=d3.extent(nodes,d=>d.x),ys=d3.extent(nodes,d=>d.y),cur=(xs[1]-xs[0])/Math.max(1,ys[1]-ys[0]),f=Math.max(.6,Math.min(1.7,asp*1.05/cur)),sx=Math.sqrt(f),sy=1/Math.sqrt(f),mx=(xs[0]+xs[1])/2,my=(ys[0]+ys[1])/2;
+   nodes.forEach(d=>{d.x=mx+(d.x-mx)*sx;d.y=my+(d.y-my)*sy;d.vx=d.vy=0});
+   d3.forceSimulation(nodes).stop().force("collide",d3.forceCollide(d=>d.r+4.5).strength(.9)).tick(40)}
+  /* sector names sit on the outer edge of the map, beyond their cluster */
+  const cx=d3.mean(nodes,d=>d.x),cy=d3.mean(nodes,d=>d.y);
+  const grps=Object.keys(WGNAME).filter(g=>g!=="boards").map(g=>{const m=nodes.filter(d=>d.n.grp===g);if(!m.length)return null;
+    const a=WANCH[g],L=Math.hypot(a[0]*SW,a[1]*SH),ux=a[0]*SW/L,uy=a[1]*SH/L,mx=d3.mean(m,d=>d.x),my=d3.mean(m,d=>d.y);
+    const far=d3.max(m,d=>(d.x-mx)*ux+(d.y-my)*uy+d.r);const X0=d3.min(nodes,d=>d.x),X1=d3.max(nodes,d=>d.x),Y0=d3.min(nodes,d=>d.y),Y1=d3.max(nodes,d=>d.y);return {g,x:Math.max(X0,Math.min(X1,mx+ux*(far+22))),y:Math.max(Y0-6,Math.min(Y1+26,my+uy*(far+22)+4)),an:ux>.6?"end":ux<-.6?"start":"middle"}}).filter(Boolean);
+  wG.grp.selectAll("text").data(grps).join("text").attr("class","wgrp").attr("text-anchor",d=>d.an).attr("x",d=>d.x).attr("y",d=>d.y).text(d=>WGNAME[d.g]);
+  const ls=wG.links.selectAll("line").data(links).join("line").attr("class",d=>"edge t-"+d.t)
+    .attr("x1",d=>d.source.x).attr("y1",d=>d.source.y).attr("x2",d=>d.target.x).attr("y2",d=>d.target.y);
+  const ns=wG.nodes.selectAll("g").data(nodes).join("g").attr("class",d=>`node ${d.n.type}`).attr("tabindex",0).attr("role","button").attr("aria-label",d=>d.n.n)
+    .attr("transform",d=>`translate(${d.x},${d.y})`)
+    .on("click",(e,d)=>{e.stopPropagation();wSelect(d.id)}).on("keydown",(e,d)=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();wSelect(d.id)}});
+  ns.each(function(d){const s=d3.select(this),n=d.n,r=d.r;
+    if(n.home)s.append("circle").attr("class","ring").attr("r",r+4);
+    if(n.type==="person")s.append("circle").attr("class","shape").attr("r",r).style("fill",fillOf(n));
+    else if(n.type==="issue")s.append("rect").attr("class","shape").attr("x",-r*.8).attr("y",-r*.8).attr("width",r*1.6).attr("height",r*1.6).attr("transform","rotate(45)").style("fill","var(--surface)").style("stroke",strokeOf(n));
+    else s.append("rect").attr("class","shape").attr("x",-r).attr("y",-r).attr("width",r*2).attr("height",r*2).attr("rx",2.5).style("stroke",strokeOf(n));
+    s.append("text").attr("class","wl").attr("text-anchor","middle").attr("y",r+12).text(trunc(n.n,30));
+    s.append("title").text(n.n+(n.r?" — "+n.r:""))});
+  return {nodes,links,ls,ns,grps,byId:new Map(nodes.map(d=>[d.id,d])),key:wKey()};
+}
+const wHid=d=>hidden(d.n);
+/* labels keep a constant on-screen size; a greedy pass shows as many as fit without overlapping, so more names appear as you zoom in */
+function wLabels(){if(!WM||mode!=="whole")return;const fs=(narrow()?11:10.5)/wK;gWhole.attr("font-size",fs);
+  const P=wPath?new Set(wPath):null,nb=!P&&wSel?neighbours(wSel):null;
+  const vis=WM.nodes.filter(d=>!wHid(d));let cand=vis;if(P)cand=cand.filter(d=>P.has(d.id));else if(nb)cand=cand.filter(d=>nb.has(d.id));
+  const pri=d=>(d.id===wSel?1e7:0)+(P&&(d.id===wPath[0]||d.id===wPath[wPath.length-1])?1e6:0)+(d.n.home?1e5:0)+(d.n.type==="org"&&d.n.k!=="university"?40:0)+d.n.deg;
+  cand=cand.slice().sort((a,b)=>pri(b)-pri(a));
+  const ov=(a,b)=>a.x0<b.x1&&a.x1>b.x0&&a.y0<b.y1&&a.y1>b.y0,pad=1.5/wK;
+  /* the part of the map on screen right now, so names never run off the edge */
+  const t=d3.zoomTransform(svg.node()),view={x0:(-W/2-t.x)/t.k+4/t.k,x1:(W/2-t.x)/t.k-4/t.k,y0:(-H/2-t.y)/t.k+4/t.k,y1:(H/2-t.y)/t.k-4/t.k};
+  const inView=b=>b.x0>=view.x0&&b.x1<=view.x1&&b.y0>=view.y0&&b.y1<=view.y1;
+  /* every visible shape is an obstacle, so a name never sits on top of someone else's dot */
+  const obst=(P||nb?cand:vis).map(d=>({id:d.id,x0:d.x-d.r-pad,x1:d.x+d.r+pad,y0:d.y-d.r-pad,y1:d.y+d.r+pad}));
+  const placed=[],gOn=new Set();
+  if(!(P||nb))WM.grps.forEach(g=>{const f=fs*1.5,w=WGNAME[g.g].length*f*.6,o=g.an==="end"?-w/2:g.an==="start"?w/2:0,bx={x0:g.x+o-w/2,x1:g.x+o+w/2,y0:g.y-f*.95,y1:g.y+f*.15};
+    if(inView(bx)&&!obst.some(n=>ov(bx,n))&&!placed.some(q=>ov(bx,q))){placed.push(bx);gOn.add(g.g)}});
+  wG.grp.selectAll("text").style("display",d=>gOn.has(d.g)?null:"none");
+  /* try a name below its shape, then above, right and left; keep the first spot that is free */
+  const on=new Map(),gap=fs*.3,hgt=fs*1.15;
+  /* the biggest hubs and your placement always get a name, even over a small dot */
+  const must=new Set(cand.filter(d=>d.n.type==="org").slice(0,7).map(d=>d.id));
+  for(const d of cand){const w=Math.min(d.n.n.length,30)*fs*.55,r=d.r,force=d.id===wSel||must.has(d.id);
+    const spots=[{a:"middle",x:0,y:r+gap+hgt*.82,b:{x0:d.x-w/2,x1:d.x+w/2,y0:d.y+r+gap,y1:d.y+r+gap+hgt}},
+      {a:"middle",x:0,y:-r-gap-hgt*.18,b:{x0:d.x-w/2,x1:d.x+w/2,y0:d.y-r-gap-hgt,y1:d.y-r-gap}},
+      {a:"start",x:r+gap,y:hgt*.32,b:{x0:d.x+r+gap,x1:d.x+r+gap+w,y0:d.y-hgt/2,y1:d.y+hgt/2}},
+      {a:"end",x:-r-gap,y:hgt*.32,b:{x0:d.x-r-gap-w,x1:d.x-r-gap,y0:d.y-hgt/2,y1:d.y+hgt/2}}];
+    for(const sp of spots){if(!inView(sp.b))continue;
+      if(d.id!==wSel&&(placed.some(q=>ov(sp.b,q))||(!force&&obst.some(n=>n.id!==d.id&&ov(sp.b,n)))))continue;
+      placed.push(sp.b);on.set(d.id,sp);break}}
+  WM.ns.select("text.wl").classed("on",d=>on.has(d.id)).each(function(d){const sp=on.get(d.id);if(sp)d3.select(this).attr("x",sp.x).attr("y",sp.y).attr("text-anchor",sp.a)});
+}
+function wApply(){const {ns,ls}=WM;
+  ns.classed("off",wHid);ls.classed("off",l=>wHid(l.source)||wHid(l.target)||offEdges.has(l.t));
+  const P=wPath?new Set(wPath):null,nb=!P&&wSel?neighbours(wSel):null;
+  gWhole.classed("dimmed",!!(P||nb));
+  ns.classed("sel",d=>!P&&d.id===wSel).classed("nb",d=>!!nb&&nb.has(d.id)).classed("path",d=>!!P&&P.has(d.id));
+  ls.classed("nb",l=>!!nb&&(l.a===wSel||l.b===wSel)).classed("path",l=>{if(!P)return false;const i=wPath.indexOf(l.a),j=wPath.indexOf(l.b);return i>=0&&j>=0&&Math.abs(i-j)===1});
+  ls.filter(".nb,.path").raise();ns.filter(".sel,.path").raise();
+  wLabels();updateBar()}
+function renderWhole(){if(!WM||WM.key!==wKey())WM=buildWhole();[gGuide,gLinks,gNodes].forEach(g=>g.style("display","none"));gWhole.style("display",null);svg.classed("phone",false);hover(null);wApply();fit(reduce?0:450)}
+function wSelect(id,{pan=false}={}){const d=WM&&WM.byId.get(id);if(!d){focusOn(id);return}wPath=null;wSel=id;wApply();renderNode(byId.get(id));if(pan)wPan(id)}
+function wClear(){wSel=null;wPath=null;wApply()}
+function wPan(id){const d=WM.byId.get(id);const t=d3.zoomTransform(svg.node()),k=Math.max(t.k,narrow()?.9:1.5);const top=0;
+  svg.transition().duration(reduce?0:500).call(zoom.transform,d3.zoomIdentity.translate(-d.x*k,-d.y*k+top/2).scale(k))}
+function setView(v){if(v==="whole"&&mode!=="whole"){ringsBack={mode,pathIds};mode="whole";wSel=null;wPath=null;render();setTab("overview");renderOverview();try{history.replaceState(null,"","#whole")}catch(e){}}
+  else if(v==="rings"&&mode==="whole"){hist.push({focus:focus.slice(),mode:"whole",pathIds:null});mode=ringsBack.mode;pathIds=ringsBack.pathIds;render();if(mode==="rings"&&focus.length===1)renderNode(byId.get(focus[0]));else{setTab("overview");renderOverview()}try{history.replaceState(null,"","#"+(focus.length===1?focus[0]:""))}catch(e){}}}
+document.getElementById("vRings").onclick=()=>setView("rings");
+document.getElementById("vWhole").onclick=()=>setView("whole");
+
+const toolbarEl=document.querySelector(".toolbar");
+function fitWhole(dur){const vis=WM.nodes.filter(d=>!wHid(d));if(!vis.length)return;let x0=1e9,x1=-1e9,y0=1e9,y1=-1e9;
+  [...vis,...WM.grps.filter(g=>g.an==="middle").map(g=>({x:g.x,y:g.y-8,r:8}))].forEach(d=>{x0=Math.min(x0,d.x-d.r);x1=Math.max(x1,d.x+d.r);y0=Math.min(y0,d.y-d.r);y1=Math.max(y1,d.y+d.r)});
+  const padX=narrow()?34:70,top=16,bot=16,avail=Math.max(200,H-top-bot);
+  const k=Math.min((W-2*padX)/(x1-x0),(avail-20)/(y1-y0),2);
+  svg.transition().duration(dur).call(zoom.transform,d3.zoomIdentity.translate(-k*(x0+x1)/2,(top-bot)/2-k*(y0+y1)/2).scale(k))}
+function fit(dur=0){if(mode==="whole"){fitWhole(dur);return}const top=14,bot=14,avail=Math.max(200,H-top-bot);const k=Math.min(W/box.w,avail/box.h,1.25);svg.transition().duration(dur).call(zoom.transform,d3.zoomIdentity.translate(0,(top-bot)/2).scale(k))}
+function tapNode(id){if(mode==="rings"&&focus.length===1&&focus[0]===id){renderNode(byId.get(id));return}focusOn(id)}
+function focusOn(id,{push=true}={}){const n=byId.get(id);if(!n)return;
+  if(push&&!(mode==="rings"&&focus.length===1&&focus[0]===id))hist.push({focus:focus.slice(),mode,pathIds});
+  focus=[id];mode="rings";pathIds=null;render();renderNode(n);try{history.replaceState(null,"","#"+id)}catch(e){}}
+function goHome(){hist.push({focus:focus.slice(),mode,pathIds});focus=HOME.slice();mode="rings";pathIds=null;render();setTab("overview");renderOverview();try{history.replaceState(null,"","#")}catch(e){}}
+function goBack(){const h=hist.pop();if(!h)return;focus=h.focus;mode=h.mode;pathIds=h.pathIds;render();
+  if(mode==="whole"){if(wSel)renderNode(byId.get(wSel));else{setTab("overview");renderOverview()}}
+  else if(mode==="rings"&&focus.length===1)renderNode(byId.get(focus[0]));else if(mode==="rings"){setTab("overview");renderOverview()}}
+function showPath(p){if(mode==="whole"){wPath=p;wApply();return}hist.push({focus:focus.slice(),mode,pathIds});mode="path";pathIds=p;render()}
+const bar=document.getElementById("focusbar"),cnt=document.getElementById("counts");
+function updateBar(){
+  const isW=mode==="whole";
+  document.getElementById("vRings").setAttribute("aria-pressed",isW?"false":"true");document.getElementById("vWhole").setAttribute("aria-pressed",isW?"true":"false");
+  document.getElementById("rkRings").hidden=isW;document.getElementById("rkWhole").hidden=!isW;
+  q.placeholder=isW?"Find someone on the map":"Put someone in the centre";
+  if(isW){const s=wSel&&byId.get(wSel);
+    bar.innerHTML=wPath?`<span class="what">Route: <b>${esc(byId.get(wPath[0]).n)}</b> to <b>${esc(byId.get(wPath[wPath.length-1]).n)}</b>, ${wPath.length-1} steps</span><button class="nav" id="fbClear">Clear</button>`
+      :s?`<span class="what"><b>${esc(s.n)}</b> and ${WM.links.filter(l=>(l.a===wSel||l.b===wSel)&&!offEdges.has(l.t)).length} direct ties</span><button class="nav" id="fbCentre">Put in the centre</button><button class="nav" id="fbClear">Clear</button>`
+      :`<span class="what">${narrow()?"Tap anyone to light up their ties.":"Everyone on one map, grouped by sector. Tap anyone to light up their ties."}</span>`;
+    const c=document.getElementById("fbClear");if(c)c.onclick=()=>{wClear();setTab("overview");renderOverview()};
+    const f=document.getElementById("fbCentre");if(f)f.onclick=()=>focusOn(wSel);
+    const vis=WM.nodes.filter(d=>!wHid(d));
+    cnt.textContent=`${vis.filter(d=>d.n.type==="person").length} people · ${vis.filter(d=>d.n.type!=="person").length} organizations and files · ${WM.links.filter(l=>!wHid(l.source)&&!wHid(l.target)&&!offEdges.has(l.t)).length} links · zoom in for more names`;
+    return}
+  const prev=hist.length?hist[hist.length-1]:null;
+  const prevName=prev?(prev.mode==="whole"?"the whole map":prev.mode==="path"?"the path":prev.focus.length>1?"your placement":byId.get(prev.focus[0]).n):null;
+  const isHome=mode==="rings"&&HOME.length>0&&focus.length===HOME.length&&focus.every(id=>HOME.includes(id));
+  const what=mode==="path"?`Path: <b>${esc(byId.get(pathIds[0]).n)}</b> to <b>${esc(byId.get(pathIds[pathIds.length-1]).n)}</b>`:isHome?`Centred on <b>your placement</b>`:`Centred on <b>${esc(byId.get(focus[0]).n)}</b>`;
+  bar.innerHTML=`<span class="what">${what}</span>${prev?`<button class="nav back" id="fbBack"><svg width="18" height="10" viewBox="0 0 18 10" aria-hidden="true"><path d="M17 5H2M6 1 2 5l4 4" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>${prev.mode==="whole"?"Back to the whole map":`Previously centred: ${esc(trunc(prevName,22))}`}</button>`:""}${!isHome&&!(prev&&prev.mode==="rings"&&prev.focus.length>1)?`<button class="nav home" id="fbHome">Your placement</button>`:""}`;
+  const b1=document.getElementById("fbBack");if(b1)b1.onclick=goBack;const b2=document.getElementById("fbHome");if(b2)b2.onclick=goHome;
+  cnt.textContent=mode==="path"?`${pathIds.length-1} step${pathIds.length===2?"":"s"} · details in the panel`:
+    `${counts.r1} of ${counts.r1t} one step away · ${counts.r2} of ${counts.r2t} two steps away${counts.r1<counts.r1t?" · full list in the panel":""}`;
+}
+svg.on("click",()=>{hover(null);if(mode==="whole"&&(wSel||wPath)){wClear();setTab("overview");renderOverview()}});
+document.getElementById("zin").onclick=()=>svg.transition().call(zoom.scaleBy,1.4);
+document.getElementById("zout").onclick=()=>svg.transition().call(zoom.scaleBy,1/1.4);
+document.getElementById("zfit").onclick=()=>fit(400);
+let rT;new ResizeObserver(()=>{const w=stage.clientWidth,h=stage.clientHeight;if(!w||!h||(w===W&&h===H))return;const wasN=narrow();W=w;H=h;svg.attr("viewBox",[-W/2,-H/2,W,H]);
+  clearTimeout(rT);rT=setTimeout(()=>{if(wasN!==narrow()||(mode==="whole"&&WM&&WM.key!==wKey()))render();else fit(0)},120)}).observe(stage);
+const keyBtn=document.getElementById("keyBtn"),legend=document.getElementById("legend");
+function setKey(open){legend.hidden=!open;keyBtn.setAttribute("aria-expanded",open?"true":"false")}
+keyBtn.onclick=()=>setKey(legend.hidden);setKey(false);
+
+/* ---------- filters ---------- */
+const chipDefs=[["research","Research"],["civil","Civil society"],["politics","Politics"],["media","Media"],["business","Business"],["boards","Boards"]];
+const chips=document.getElementById("chips");
+chipDefs.forEach(([g,label])=>{const b=document.createElement("button");b.className="chip";b.setAttribute("aria-pressed","true");
+  b.innerHTML=`<i style="background:var(${(GROUPS[g]).v})"></i>${label}`;
+  b.onclick=()=>{const on=b.getAttribute("aria-pressed")==="true";b.setAttribute("aria-pressed",on?"false":"true");on?offGroups.add(g):offGroups.delete(g);if(g==="politics"){on?offGroups.add("officials"):offGroups.delete("officials")}render()};chips.appendChild(b)});
+document.getElementById("partyKey").innerHTML=Object.keys(PARTY).map(k=>`<span><i class="sw" style="background:${PARTY[k].c};border-radius:50%"></i>${PARTY[k].n}</span>`).join("");
+function neighbours(id){return new Set([id,...adj.get(id).map(a=>a.id)])}
+
+/* ---------- panel ---------- */
+const panel=document.getElementById("panel");
+function setTab(t){["overview","dir","path"].forEach(x=>document.getElementById("tab-"+x).setAttribute("aria-selected",x===t?"true":"false"))}
+document.getElementById("tab-overview").onclick=()=>{setTab("overview");renderOverview()};
+document.getElementById("tab-dir").onclick=()=>{setTab("dir");renderDir()};
+document.getElementById("tab-path").onclick=()=>{setTab("path");renderPath()};
+
+function warmPath(id){ // shortest route from your placement, skipping parties, live files and universities
+  if(HOME.includes(id))return null;
+  const skip=n=>n.k==="party"||n.type==="issue"||n.k==="university"||n.type==="org"&&n.k==="media";
+  const prev=new Map();const qq=[...HOME];HOME.forEach(h=>prev.set(h,null));
+  while(qq.length){const c=qq.shift();if(c===id)break;for(const a of adj.get(c)){if(prev.has(a.id))continue;const nn=byId.get(a.id);if(skip(nn)&&a.id!==id)continue;prev.set(a.id,{from:c,l:a.l});qq.push(a.id)}}
+  if(!prev.has(id))return null;const path=[];let c=id;while(c){path.unshift(c);const p=prev.get(c);c=p?p.from:null}return path;}
+
+function chipFor(n){if(n.party)return `<span class="pill"><i style="background:${PARTY[n.party].c}"></i>${PARTY[n.party].n}</span>`;
+  if(n.type==="person")return `<span class="pill"><i style="background:var(${GROUPS[n.g].v})"></i>${GROUPS[n.g].n}</span>`;
+  return `<span class="pill">${(KIND[n.k]||{}).n||""}</span>`}
+
+function connList(id){
+  const items=adj.get(id).map(a=>({n:byId.get(a.id),l:a.l})).sort((a,b)=>Object.keys(ETYPE).indexOf(a.l.t)-Object.keys(ETYPE).indexOf(b.l.t)||a.n.n.localeCompare(b.n.n));
+  return `<ul class="links">${items.map(({n,l})=>`<li><span class="k" style="background:var(${ETYPE[l.t].v})"></span><span><button class="lnk" data-go="${n.id}">${esc(n.n)}</button>${l.l?` <span class="ev">· ${esc(l.l)}</span>`:""}${l.u?` <a class="note" href="${esc(l.u)}" target="_blank" rel="noopener">source</a>`:""}</span></li>`).join("")}</ul>`}
+
+function renderNode(n){setTab(null);
+  let h=`<button class="back" id="backBtn">Overview</button>`;
+  h+=`<h2>${esc(n.n)}</h2>`;
+  if(admin)h+=`<div class="btnrow" style="margin:4px 0 12px"><button class="btn sm" data-edit="${n.id}">Edit</button><button class="btn sm danger" data-del="${n.id}">Delete</button></div><div id="delBox"></div>`;
+  if(mode==="whole")h+=`<p style="margin:2px 0 10px"><button class="nav" data-centre="${n.id}">Put ${n.type==="person"?"them":"it"} in the centre of the Connections view</button></p>`;
+  if(n.type==="person"){
+    h+=`<p class="role">${esc(n.r)}${n.o?` · ${esc(n.o)}`:""}</p><div class="pills">${chipFor(n)}<span class="pill st-${n.s}">${STANCE[n.s]||n.s}</span>${n.home?`<span class="pill">Your placement</span>`:""}${n.peri?`<span class="pill">One verified tie so far</span>`:""}</div>`;
+    h+=`<p>${esc(n.b)}</p>`;
+    if(n.w)h+=`<div class="why"><b>Why they matter to your research</b>${esc(n.w)}</div>`;
+    if(n.flag)h+=`<p class="note">Check: ${esc(n.flag)}</p>`;
+    h+=`<h3>Contact</h3><dl class="contact">`;
+    if(n.e)h+=`<dt>Email</dt><dd><span class="mono">${esc(n.e)}</span><button class="copy" data-copy="${esc(n.e)}">Copy</button></dd>`;
+    const LIC={verified:["Profile","exact URL confirmed on an official page or search result"],high:["Profile","name and employer match"],medium:["Likely profile","name matches; employer only partly visible"],low:["Possible profile","check before contacting"]};
+    h+=`<dt>LinkedIn</dt><dd>${n.li?`<a href="${esc(n.li)}" target="_blank" rel="noopener">${LIC[n.lic||"verified"][0]}</a> <span class="note">(${LIC[n.lic||"verified"][1]})</span>${n.lin?`<br><span class="note">Profile shows: ${esc(n.lin)}</span>`:""}`:`<a href="https://www.linkedin.com/search/results/people/?keywords=${encodeURIComponent(n.n)}" target="_blank" rel="noopener">Search LinkedIn</a> <span class="note">(no profile found)</span>`}</dd>`;
+    if(n.x)h+=`<dt>X / social</dt><dd class="mono">${esc(n.x)}</dd>`;
+    if(n.p)h+=`<dt>Profile</dt><dd><a href="${esc(n.p)}" target="_blank" rel="noopener">${esc(host(n.p))}</a></dd>`;
+    if(n.c&&!n.e)h+=`<dt>Contact via</dt><dd><a href="${esc(n.c)}" target="_blank" rel="noopener">${esc(host(n.c))}</a></dd>`;
+    h+=`<dt>Role source</dt><dd><a href="${esc(n.src)}" target="_blank" rel="noopener">${esc(host(n.src))}</a> <span class="note">checked ${CHECKED}</span></dd></dl>`;
+  } else {
+    h+=`<div class="pills">${chipFor(n)}${n.home?`<span class="pill">Your placement</span>`:""}</div>`;
+    if(n.d)h+=`<p>${esc(n.d)}</p>`;
+    if(n.u||n.c){h+=`<dl class="contact">`;if(n.u)h+=`<dt>Website</dt><dd><a href="${esc(n.u)}" target="_blank" rel="noopener">${esc(host(n.u))}</a></dd>`;if(n.c)h+=`<dt>Contact</dt><dd class="mono">${esc(n.c)}</dd>`;h+=`</dl>`}
+    const ppl=adj.get(n.id).map(a=>byId.get(a.id)).filter(x=>x.type==="person");
+    if(n.type==="org"&&ppl.length){const others=new Set();ppl.forEach(p=>adj.get(p.id).forEach(a=>{const o=byId.get(a.id);if(o.type==="org"&&o.id!==n.id&&!["party","university","media"].includes(o.k))others.add(o.id)}));
+      if(others.size)h+=`<p class="note">Its people also sit at: ${[...others].map(i=>`<button class="lnk" data-go="${i}">${esc(byId.get(i).n)}</button>`).join(", ")}</p>`}
+  }
+  const wp=warmPath(n.id);
+  if(wp&&wp.length>2){h+=`<h3>Warmest route from your placement</h3><p>${wp.map((id,i)=>i===0||i===wp.length-1?`<strong>${esc(byId.get(id).n)}</strong>`:`<button class="lnk" data-go="${id}">${esc(byId.get(id).n)}</button>`).join(" → ")}</p><button class="lnk" id="showWarm">Show this route on the map</button>`}
+  h+=`<h3>Connections (${n.deg})</h3>`+connList(n.id);
+  panel.innerHTML=h;panel.scrollTop=0;
+  document.getElementById("backBtn").onclick=()=>{setTab("overview");renderOverview()};
+  const sw=document.getElementById("showWarm");if(sw)sw.onclick=()=>showPath(wp);
+}
+panel.addEventListener("click",e=>{const cc=e.target.closest("[data-centre]");if(cc){focusOn(cc.dataset.centre);if(narrow())stageBox.scrollIntoView({behavior:reduce?"auto":"smooth",block:"start"});return}
+  const g=e.target.closest("[data-go]");if(g){mode==="whole"?wSelect(g.dataset.go,{pan:true}):focusOn(g.dataset.go);if(narrow())stageBox.scrollIntoView({behavior:reduce?"auto":"smooth",block:"start"});return}
+  const c=e.target.closest("[data-copy]");if(c){const t=c.dataset.copy;const done=()=>{c.textContent="Copied";setTimeout(()=>c.textContent="Copy",1400)};
+    try{navigator.clipboard.writeText(t).then(done,()=>selectText(c.previousElementSibling))}catch(err){selectText(c.previousElementSibling)}}});
+function selectText(el){const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r)}
+
+/* overview: bridges and overlaps */
+function institutions(p){return adj.get(p.id).map(a=>byId.get(a.id)).filter(o=>o.type==="org"&&!["party","university","media"].includes(o.k))}
+function renderOverview(){
+  const ppl=allNodes.filter(n=>n.type==="person");
+  const bridges=ppl.map(p=>({p,orgs:institutions(p)})).filter(x=>x.orgs.length>=3).sort((a,b)=>b.orgs.length-a.orgs.length||b.p.deg-a.p.deg);
+  const orgs=allNodes.filter(n=>n.type==="org"&&["think","ngo","labour"].includes(n.k));
+  const pairs=[];for(let i=0;i<orgs.length;i++)for(let j=i+1;j<orgs.length;j++){const a=new Set(adj.get(orgs[i].id).map(x=>x.id));const shared=adj.get(orgs[j].id).map(x=>x.id).filter(id=>a.has(id)&&byId.get(id).type==="person");if(shared.length)pairs.push({a:orgs[i],b:orgs[j],s:shared})}
+  pairs.sort((x,y)=>y.s.length-x.s.length);
+  let h=admin?adminOverviewTools():"";
+  h+=`<div class="stats"><div><b>${ppl.length}</b>people</div><div><b>${INST}</b>institutions</div><div><b>${allLinks.length}</b>sourced links</div><div><b>${ppl.filter(p=>p.e).length}</b>public emails</div><div><b>${ppl.filter(p=>p.li&&p.lic!=="low").length}</b>LinkedIn profiles</div></div>`;
+  h+=mode==="whole"?`<p class="note">The whole map shows everyone at once, each pulled toward their sector, so clusters and the people who sit between them stand out. Tap anyone to light up their direct ties; switch to Connections to put them in the centre. Every link carries its source.</p>`
+    :`<p class="note">Connections puts one person or organization in the centre. The inner ring holds everyone one step away; the outer ring holds the people they connect to. Tap anyone to move them to the centre, or open Whole map to see everyone at once. Every link carries its source.</p>`;
+  h+=`<h3>Bridges: people who sit in three or more institutions</h3><ul class="links">${bridges.map(({p,orgs})=>`<li><span class="k" style="background:${p.party?PARTY[p.party].c:`var(${GROUPS[p.g].v})`}"></span><span><button class="lnk" data-go="${p.id}">${esc(p.n)}</button> <span class="ev">· ${orgs.map(o=>esc(o.n)).join(", ")}</span></span></li>`).join("")}</ul>`;
+  h+=`<h3>Where the think tanks and NGOs overlap</h3><div class="overlap">${pairs.slice(0,12).map(x=>`<div class="pair"><strong><button class="lnk" data-go="${x.a.id}">${esc(x.a.n)}</button> + <button class="lnk" data-go="${x.b.id}">${esc(x.b.n)}</button></strong><br><span class="who">${x.s.map(id=>esc(byId.get(id).n)).join(", ")}</span></div>`).join("")}</div>`;
+  h+=`<h3>Live files</h3><ul class="links">${O.filter(o=>o.k==="issue").map(o=>`<li><span class="k" style="background:var(--hl)"></span><span><button class="lnk" data-go="${o.id}">${esc(o.n)}</button> <span class="ev">· ${adj.get(o.id).length} connected</span></span></li>`).join("")}</ul>`;
+  const peri=allNodes.filter(n=>n.peri&&n.type==="person").sort((a,b)=>a.n.localeCompare(b.n));
+  if(peri.length)h+=`<h3>Thinly sourced: one verified tie so far (${peri.length})</h3><p class="note">Worth a second source before you rely on them as a bridge.</p><ul class="links">${peri.map(p=>`<li><span class="k" style="background:var(--line)"></span><span><button class="lnk" data-go="${p.id}">${esc(p.n)}</button> <span class="ev">· ${esc(p.o||"")}</span></span></li>`).join("")}</ul>`;
+  const leads=(SETTINGS.leads||[]).filter(Boolean);
+  if(leads.length)h+=`<h3>Leads not yet verified</h3><ul class="links note" style="color:var(--muted)">${leads.map(l=>`<li><span class="k" style="background:var(--line)"></span><span>${esc(l)}</span></li>`).join("")}</ul>`;
+  h+=`<h3>Which kinds of link count</h3><p class="note">Switch a type off to rebuild the rings without it, for example to see only working ties without Parliament or media.</p><div class="edgekeys">${Object.entries(ETYPE).filter(([k])=>k!=="party").map(([k,v])=>`<button class="chip" data-et="${k}" aria-pressed="${offEdges.has(k)?"false":"true"}"><i style="background:var(${v.v});border-radius:2px;height:3px;width:12px"></i>${v.n}</button>`).join("")}</div>`;
+  panel.innerHTML=h;
+  panel.querySelectorAll("[data-et]").forEach(b=>b.onclick=()=>{const k=b.dataset.et;offEdges.has(k)?offEdges.delete(k):offEdges.add(k);b.setAttribute("aria-pressed",offEdges.has(k)?"false":"true");render()});
+}
+
+/* directory */
+let dirGroup="all";
+function renderDir(){
+  const opts=[["all","Everyone"],...Object.entries(GROUPS).map(([k,v])=>[k,v.n])];
+  let h=admin?`<div class="adminadd"><button class="btn sm" data-add="person">Add person</button><button class="btn sm ghost" data-add="org">Add institution or live file</button></div>`:"";
+  h+=`<div class="field"><label for="dirsel">Show</label><select id="dirsel" class="dirsel">${opts.map(([k,n])=>`<option value="${k}"${k===dirGroup?" selected":""}>${n}</option>`).join("")}</select></div>`;
+  const list=allNodes.filter(n=>n.type==="person"&&(dirGroup==="all"||n.g===dirGroup)).sort((a,b)=>a.n.split(" ").slice(-1)[0].localeCompare(b.n.split(" ").slice(-1)[0]));
+  h+=`<p class="note">${list.length} people · ${list.filter(p=>p.e).length} with a public email · ${list.filter(p=>p.li&&p.lic!=="low").length} with a LinkedIn match</p><ul class="dir">${list.map(p=>`<li><button data-go="${p.id}"><i style="background:${p.party?PARTY[p.party].c:`var(${GROUPS[p.g].v})`}"></i><span>${esc(p.n)}<span class="r">${esc(p.r)}${p.o?` · ${esc(p.o)}`:""}</span></span></button></li>`).join("")}</ul>`;
+  panel.innerHTML=h;document.getElementById("dirsel").onchange=e=>{dirGroup=e.target.value;renderDir()};
+}
+
+/* path finder */
+function idByName(s){s=(s||"").trim().toLowerCase();const n=allNodes.find(x=>x.n.toLowerCase()===s)||allNodes.find(x=>x.n.toLowerCase().includes(s));return n&&s?n.id:null}
+function bfs(a,b,skipParty){const prev=new Map([[a,null]]);const qq=[a];while(qq.length){const c=qq.shift();if(c===b)break;for(const x of adj.get(c)){if(prev.has(x.id))continue;const n=byId.get(x.id);if(skipParty&&n.k==="party"&&x.id!==b)continue;prev.set(x.id,c);qq.push(x.id)}}if(!prev.has(b))return null;const p=[];let c=b;while(c!=null){p.unshift(c);c=prev.get(c)}return p}
+function renderPath(){
+  let h=`<p>Trace how two people or organizations connect, and see who they share. Party links are skipped so the route reflects real working ties.</p>
+  <div class="field"><label for="pa">From</label><input id="pa" autocomplete="off" value="Canadians for Tax Fairness"></div>
+  <div class="field"><label for="pb">To</label><input id="pb" autocomplete="off" value="Percy E. Downe"></div>
+  <button class="btn" id="go">Trace path</button><div id="pres"></div>`;
+  panel.innerHTML=h;["pa","pb"].forEach(i=>{const el=document.getElementById(i);picker(el,n=>{el.value=n.n})});const run=()=>{const a=idByName(document.getElementById("pa").value),b=idByName(document.getElementById("pb").value);const out=document.getElementById("pres");
+    if(!a||!b){out.innerHTML=`<p class="note">Pick both names from the list.</p>`;return}
+    const p=bfs(a,b,true);if(!p){out.innerHTML=`<p class="note">No working route between them on this map.</p>`;return}
+    const common=[...neighbours(a)].filter(x=>x!==a&&x!==b&&neighbours(b).has(x)&&byId.get(x).k!=="party");
+    out.innerHTML=`<h3>${p.length-1} step${p.length===2?"":"s"}</h3><ol class="path">${p.map((id,i)=>{let lab="";if(i<p.length-1){const l=adj.get(id).find(x=>x.id===p[i+1]).l;lab=l.l?`<span class="ev"> · ${esc(l.l)}</span>`:""}return `<li><button class="lnk" data-go="${id}">${esc(byId.get(id).n)}</button>${lab}</li>`}).join("")}</ol>${common.length?`<h3>Shared directly</h3><p>${common.map(id=>`<button class="lnk" data-go="${id}">${esc(byId.get(id).n)}</button>`).join(", ")}</p>`:""}`;
+    showPath(p)};
+  document.getElementById("go").onclick=run;
+}
+
+/* search */
+const q=document.getElementById("q");
+/* name picker: a list drawn by the page, because the browser's own dropdown won't scroll over the map in some browsers */
+const fold=s=>String(s).normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
+const ac=document.createElement("ul");ac.className="ac";ac.id="acList";ac.setAttribute("role","listbox");ac.hidden=true;document.body.appendChild(ac);
+let acIn=null,acItems=[],acI=-1;
+function acMatch(v){v=fold(v.trim());if(!v)return pickable.map(x=>x.n);const out=[];
+  pickable.forEach(x=>{const s=x.f.startsWith(v)?0:x.f.split(/[\s\-'’.]+/).some(w=>w.startsWith(v))?1:x.f.includes(v)?2:x.o.includes(v)?3:-1;if(s>=0)out.push([s,x.n])});
+  return out.sort((a,b)=>a[0]-b[0]).map(x=>x[1])}
+function acDot(n){return n.type==="person"?`<i style="background:${fillOf(n)}"></i>`:n.type==="issue"?`<i style="border:1.5px solid var(--hl);border-radius:1px;transform:rotate(45deg) scale(.8)"></i>`:`<i style="border:1.5px solid ${strokeOf(n)};border-radius:2px"></i>`}
+function acSub(n){return n.type==="person"?(n.o||n.r||""):(KSHORT[n.k]||"")}
+function acPos(){if(!acIn)return;const r=acIn.getBoundingClientRect(),w=Math.min(Math.max(r.width,280),innerWidth-16);ac.style.left=Math.max(8,Math.min(r.left,innerWidth-w-8))+"px";ac.style.width=w+"px";ac.style.top=(r.bottom+4)+"px";ac.style.maxHeight=Math.max(160,Math.min(380,innerHeight-r.bottom-16))+"px"}
+function acOpen(input){acIn=input;acItems=acMatch(input.value);acI=input.value.trim()&&acItems.length?0:-1;
+  ac.innerHTML=acItems.length?acItems.map((n,i)=>`<li role="option" id="ac${i}" data-i="${i}" aria-selected="${i===acI}">${acDot(n)}<span>${esc(n.n)}<span class="r">${esc(acSub(n))}</span></span></li>`).join(""):`<li class="none">No match on the map</li>`;
+  acPos();ac.hidden=false;ac.scrollTop=0;input.setAttribute("aria-expanded","true")}
+function acClose(){ac.hidden=true;if(acIn){acIn.setAttribute("aria-expanded","false");acIn.removeAttribute("aria-activedescendant")}acIn=null}
+function acMove(d){if(!acItems.length)return;acI=(acI+d+acItems.length)%acItems.length;ac.querySelectorAll("li").forEach((li,i)=>li.setAttribute("aria-selected",i===acI?"true":"false"));const li=document.getElementById("ac"+acI);if(li){li.scrollIntoView({block:"nearest"});acIn.setAttribute("aria-activedescendant","ac"+acI)}}
+function picker(input,onPick){input.setAttribute("role","combobox");input.setAttribute("aria-autocomplete","list");input.setAttribute("aria-controls","acList");input.setAttribute("aria-expanded","false");
+  input._pick=n=>{acClose();onPick(n)};
+  input.addEventListener("focus",()=>acOpen(input));input.addEventListener("click",()=>{if(acIn!==input)acOpen(input)});input.addEventListener("input",()=>acOpen(input));
+  input.addEventListener("keydown",e=>{if(e.key==="ArrowDown"){e.preventDefault();if(acIn!==input)acOpen(input);acMove(1)}else if(e.key==="ArrowUp"){e.preventDefault();acMove(-1)}
+    else if(e.key==="Enter"){e.preventDefault();const n=acIn===input&&acI>=0?acItems[acI]:(input.value.trim()?acMatch(input.value)[0]:null);if(n)input._pick(n)}else if(e.key==="Escape"){acClose()}});
+  input.addEventListener("blur",()=>setTimeout(()=>{if(acIn===input&&document.activeElement!==input)acClose()},120))}
+ac.addEventListener("mousedown",e=>e.preventDefault());
+ac.addEventListener("click",e=>{const li=e.target.closest("li[data-i]");if(li&&acIn)acIn._pick(acItems[+li.dataset.i])});
+addEventListener("resize",acPos);addEventListener("scroll",acPos,{passive:true});
+picker(q,n=>{mode==="whole"?wSelect(n.id,{pan:true}):focusOn(n.id);q.value="";q.blur();acClose()});
+
+/* ---------- theme ---------- */
+const themeBtn=document.getElementById("themeBtn");
+const ICON_SUN=`<svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>`;
+const ICON_MOON=`<svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.6A8.2 8.2 0 0 1 9.4 4a8.3 8.3 0 1 0 10.6 10.6Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>`;
+const darkMQ=matchMedia("(prefers-color-scheme: dark)");
+function curTheme(){return document.documentElement.getAttribute("data-theme")||(darkMQ.matches?"dark":"light")}
+function paintThemeBtn(){const t=curTheme();themeBtn.innerHTML=t==="dark"?ICON_SUN:ICON_MOON;themeBtn.setAttribute("aria-label",t==="dark"?"Switch to light theme":"Switch to dark theme");themeBtn.title=themeBtn.getAttribute("aria-label");
+  const m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute("content",t==="dark"?"#1e1c16":"#f4ebd9")}
+themeBtn.onclick=()=>{const n=curTheme()==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",n);store.set("ctfm-theme",n);paintThemeBtn()};
+try{darkMQ.addEventListener("change",paintThemeBtn)}catch(e){}
+
+/* ---------- small helpers ---------- */
+const store={get:k=>{try{return localStorage.getItem(k)}catch(e){return null}},set:(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}},del:k=>{try{localStorage.removeItem(k)}catch(e){}}};
+let toastT;function toast(msg,ms=3800){let t=document.getElementById("toast");if(!t){t=document.createElement("div");t.id="toast";t.className="toast";t.setAttribute("role","status");document.body.appendChild(t)}
+  t.textContent=msg;t.hidden=false;clearTimeout(toastT);toastT=setTimeout(()=>t.hidden=true,ms)}
+paintThemeBtn();
+
+/* ---------- admin: edits are commits to data.json on GitHub; Vercel redeploys the site ---------- */
+const TOKEN_KEY="ctfm-admin-token",DRAFT_KEY="ctfm-admin-draft",IS_ARTIFACT=!!document.getElementById("seed");
+const ghUrl=()=>`https://api.github.com/repos/${REPO}/contents/${DATA_PATH}`;
+let admin=false,remoteSha=null,changes=[],busy=false;
+const adminBtn=document.getElementById("adminBtn"),adminbar=document.getElementById("adminbar"),adminState=document.getElementById("adminState"),publishBtn=document.getElementById("publishBtn"),discardBtn=document.getElementById("discardBtn");
+function adminToken(){return store.get(TOKEN_KEY)}
+function adminDraft(){try{return JSON.parse(store.get(DRAFT_KEY)||"null")}catch(e){return null}}
+function saveDraft(){if(changes.length)store.set(DRAFT_KEY,JSON.stringify({data:DATA,changes,sha:remoteSha}));else store.del(DRAFT_KEY)}
+function b64ToUtf8(b){const bin=atob(b.replace(/\s/g,""));return new TextDecoder().decode(Uint8Array.from(bin,c=>c.charCodeAt(0)))}
+function utf8ToB64(str){const u=new TextEncoder().encode(str);let bin="";for(let i=0;i<u.length;i+=0x8000)bin+=String.fromCharCode.apply(null,u.subarray(i,i+0x8000));return btoa(bin)}
+function ghErr(st){const e=new Error(st===401?"GitHub didn’t accept that key. Check you copied all of it.":st===403?`This key can’t use ${REPO}. Give it Contents: Read and write on that repository.`:st===404?`This key can’t see ${REPO}. Pick it under “Only select repositories”.`:`GitHub answered with error ${st}. Try again in a moment.`);e.status=st;return e}
+const ghHead=tok=>({Authorization:"Bearer "+tok,Accept:"application/vnd.github+json"});
+async function ghGet(tok){let r;try{r=await fetch(ghUrl()+"?ref=main&t="+Date.now(),{headers:ghHead(tok),cache:"no-store"})}catch(e){throw new Error("Couldn’t reach GitHub. Check your connection.")}
+  if(!r.ok)throw ghErr(r.status);const j=await r.json();let text;
+  if(j.content&&j.encoding==="base64")text=b64ToUtf8(j.content);
+  else{const r2=await fetch(ghUrl()+"?ref=main&t="+Date.now(),{headers:{...ghHead(tok),Accept:"application/vnd.github.raw"},cache:"no-store"});if(!r2.ok)throw ghErr(r2.status);text=await r2.text()}
+  return {sha:j.sha,data:JSON.parse(text)}}
+async function ghPut(tok,data,sha,msg){let r;
+  try{r=await fetch(ghUrl(),{method:"PUT",headers:{...ghHead(tok),"Content-Type":"application/json"},body:JSON.stringify({message:msg,content:utf8ToB64(JSON.stringify(data,null,1)+"\n"),sha,branch:"main"})})}catch(e){throw new Error("Couldn’t reach GitHub. Check your connection; your changes are kept.")}
+  if(r.status===409||r.status===422){const e=new Error("conflict");e.status=409;throw e}
+  if(!r.ok)throw ghErr(r.status);return (await r.json()).content.sha}
+
+function paintAdmin(){adminBtn.setAttribute("aria-pressed",admin?"true":"false");adminBtn.querySelector("span").textContent=admin?"Admin on":"Admin";
+  adminbar.hidden=!admin;const n=changes.length;
+  adminState.textContent=busy?"Publishing…":n?`${n} unpublished change${n===1?"":"s"}`:"Everything is published";
+  publishBtn.disabled=busy||!n;discardBtn.hidden=!n||busy}
+async function enterAdmin({quiet=false}={}){const tok=adminToken();if(!tok||!REPO){openUnlock();return}
+  adminState.textContent="Connecting to GitHub…";
+  try{const r=await ghGet(tok);const draft=adminDraft();
+    if(draft&&draft.changes&&draft.changes.length){changes=draft.changes;remoteSha=draft.sha||r.sha;if(DATA!==draft.data){rebuild(draft.data);refreshAll()}}
+    else{remoteSha=r.sha;changes=[];rebuild(r.data);refreshAll()}
+    admin=true;paintAdmin();refreshPanel();if(!quiet)toast("Admin mode on. Edit from any profile, or add people from the Overview.")}
+  catch(e){if(e.status===401||e.status===404||e.status===403){store.del(TOKEN_KEY);if(!quiet)openUnlock(e.message)}else if(!quiet)toast(e.message)}}
+function exitAdmin(){if(changes.length){toast("Publish or discard your changes before leaving admin mode.");return}admin=false;paintAdmin();refreshPanel()}
+adminBtn.onclick=()=>admin?exitAdmin():enterAdmin();
+function adminBoot(fresh){if(IS_ARTIFACT){adminBtn.hidden=true;return}document.getElementById("repoName").textContent=REPO?REPO.split("/")[1]:"your map repository";
+  if(adminToken())enterAdmin({quiet:true})}
+addEventListener("beforeunload",e=>{if(changes.length){e.preventDefault();e.returnValue=""}});
+
+/* unlock dialog */
+const unlock=document.getElementById("unlock"),tokIn=document.getElementById("tokIn"),unlockErr=document.getElementById("unlockErr");
+function openUnlock(msg){unlockErr.textContent=msg||"";tokIn.value="";document.getElementById("repoIn").value=REPO;try{unlock.showModal()}catch(e){unlock.setAttribute("open","")}setTimeout(()=>tokIn.focus(),30)}
+document.getElementById("unlockForm").addEventListener("submit",async e=>{const sub=e.submitter;if(sub&&sub.value==="cancel")return;e.preventDefault();
+  const rp=document.getElementById("repoIn").value.trim().replace(/^https?:\/\/github\.com\//i,"").replace(/\.git$|\/+$/g,"");
+  if(!/^[\w.-]+\/[\w.-]+$/.test(rp)){unlockErr.textContent="Type the repository as your-github-name/your-repo-name.";return}
+  const tok=tokIn.value.trim();if(!tok){unlockErr.textContent="Paste the key first.";return}
+  const prevRepo=REPO;REPO=rp;
+  const go=document.getElementById("unlockGo");go.disabled=true;go.textContent="Checking…";unlockErr.textContent="";
+  try{await ghGet(tok);store.set(TOKEN_KEY,tok);store.set(REPO_KEY,REPO);document.getElementById("repoName").textContent=REPO.split("/")[1];unlock.close();await enterAdmin()}catch(err){REPO=prevRepo;unlockErr.textContent=err.message}
+  finally{go.disabled=false;go.textContent="Unlock"}});
+
+/* publish / discard */
+publishBtn.onclick=()=>publish(false);
+async function publish(overwrite){const tok=adminToken();if(!tok){openUnlock();return}if(!changes.length)return;
+  busy=true;paintAdmin();
+  const msg=(changes.length===1?changes[0]:`${changes.length} edits: ${changes.slice(0,6).join("; ")}${changes.length>6?"; …":""}`).slice(0,240);
+  try{let sha=remoteSha;if(overwrite){sha=(await ghGet(tok)).sha}
+    remoteSha=await ghPut(tok,DATA,sha,"Map: "+msg);changes=[];saveDraft();toast("Published. The live site updates for everyone in about a minute.",5200)}
+  catch(e){if(e.status===409)showConflict();else toast(e.message,6000)}
+  finally{busy=false;paintAdmin()}}
+function showConflict(){setTab(null);panel.innerHTML=`<div class="confirm"><h3 style="margin-top:0">The data changed on GitHub</h3><p>Someone, or you on another device, saved a newer version since you started editing.</p><div class="btnrow"><button class="btn" id="cfLatest">Load the latest (drop my changes)</button><button class="btn ghost" id="cfMine">Keep mine (overwrite)</button></div></div>`;
+  document.getElementById("cfLatest").onclick=()=>discard(true);document.getElementById("cfMine").onclick=()=>publish(true)}
+discardBtn.onclick=()=>{panel.querySelector("#discardBox")?.remove();const box=document.createElement("div");box.id="discardBox";box.className="confirm";box.innerHTML=`<p style="margin:0 0 8px">Throw away ${changes.length} unpublished change${changes.length===1?"":"s"}?</p><div class="btnrow" style="margin:0"><button class="btn danger" id="dcYes">Discard</button><button class="btn ghost" id="dcNo">Keep editing</button></div>`;
+  panel.prepend(box);panel.scrollTop=0;document.getElementById("dcYes").onclick=()=>discard(false);document.getElementById("dcNo").onclick=()=>box.remove()};
+async function discard(){const tok=adminToken();try{const r=await ghGet(tok);remoteSha=r.sha;changes=[];saveDraft();rebuild(r.data);refreshAll();paintAdmin();setTab("overview");renderOverview();toast("Changes discarded.")}catch(e){toast(e.message)}}
+
+/* after any edit */
+function commitChange(summary,showId){changes.push(summary);rebuild(DATA);saveDraft();paintAdmin();
+  focus=focus.filter(id=>byId.has(id));if(!focus.length)focus=HOME.filter(id=>byId.has(id));
+  hist=hist.filter(h=>h.focus.every(id=>byId.has(id)));if(pathIds&&!pathIds.every(id=>byId.has(id))){pathIds=null;if(mode==="path")mode="rings"}
+  if(wSel&&!byId.has(wSel))wSel=null;if(wPath&&!wPath.every(id=>byId.has(id)))wPath=null;
+  if(showId&&byId.has(showId)){if(mode==="whole"){render();wSelect(showId,{pan:true})}else focusOn(showId)}else{render();setTab("overview");renderOverview()}
+  toast(summary+". Publish when you’re ready.")}
+function refreshAll(){focus=focus.filter(id=>byId.has(id));if(!focus.length)focus=HOME.filter(id=>byId.has(id));hist=[];render()}
+function refreshPanel(){const sel=document.querySelector('.tabs [aria-selected="true"]');const t=sel?sel.id.slice(4):null;
+  if(t==="overview")renderOverview();else if(t==="dir")renderDir();else if(t==="path")renderPath();
+  else{const id=mode==="whole"?wSel:(mode==="rings"&&focus.length===1?focus[0]:null);id&&byId.has(id)?renderNode(byId.get(id)):(setTab("overview"),renderOverview())}}
+
+function adminOverviewTools(){return `<div class="adminadd"><button class="btn sm" data-add="person">Add person</button><button class="btn sm ghost" data-add="org">Add institution or live file</button><button class="btn sm ghost" data-dates="1">Edit dates</button><button class="btn sm ghost" data-settings="1">Map settings</button></div>`}
+
+/* ---------- editor ---------- */
+const slug=s=>fold(s).replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"").slice(0,48)||"item";
+function newId(name,kind){const pre=kind==="person"?"":kind==="issue"?"i-":"o-";let base=pre+slug(name),id=base,i=2;while(byId.has(id)||P.some(x=>x.id===id)||O.some(x=>x.id===id))id=base+"-"+i++;return id}
+const LICN={verified:"Verified on an official page",high:"High: name and employer match",medium:"Medium: employer partly visible",low:"Low: check before contacting"};
+const opt=(v,label,cur)=>`<option value="${esc(v)}"${v===cur?" selected":""}>${esc(label)}</option>`;
+const fld=(id,label,val,{type="text",hint="",ph="",req=false}={})=>`<div class="field"><label for="f-${id}">${label}${req?" *":""}</label><input id="f-${id}" name="${id}" type="${type}" value="${esc(val||"")}" placeholder="${esc(ph)}"${req?" required":""}>${hint?`<span class="hint">${hint}</span>`:""}</div>`;
+const area=(id,label,val,hint="")=>`<div class="field"><label for="f-${id}">${label}</label><textarea id="f-${id}" name="${id}">${esc(val||"")}</textarea>${hint?`<span class="hint">${hint}</span>`:""}</div>`;
+const sel=(id,label,cur,opts)=>`<div class="field"><label for="f-${id}">${label}</label><select id="f-${id}" name="${id}">${opts.map(([v,l])=>opt(v,l,cur||"")).join("")}</select></div>`;
+let ed=null;
+function openEditor(kind,id){const isNew=!id;const src=isNew?null:(kind==="person"?P:O).find(x=>x.id===id);
+  if(!isNew&&!src)return;
+  const links=isNew?[]:E.filter(e=>e.a===id||e.b===id).map(e=>({orig:e,other:e.a===id?e.b:e.a,t:e.t,l:e.l||"",u:e.u||""}));
+  ed={kind,isNew,id,links};setTab(null);const x=src||{};
+  let h=`<button class="back" id="edBack">${isNew?"Cancel":"Back to profile"}</button><h2>${isNew?(kind==="person"?"Add a person":"Add an institution or live file"):"Edit "+esc(x.n)}</h2><form id="edForm" novalidate>`;
+  if(kind==="person"){
+    h+=fld("n","Name",x.n,{req:true})+`<div class="grid2">`+sel("g","Sector",x.g||"research",Object.entries(GROUPS).map(([k,v])=>[k,v.n]))+sel("s","Stance",x.s||"neutral",Object.entries(STANCE))+`</div>`;
+    h+=fld("r","Role",x.r,{req:true,ph:"e.g. Senior Economist"})+`<div class="grid2">`+fld("o","Organization",x.o)+sel("party","Party",x.party||"",[["","None"],...Object.entries(PARTY).map(([k,v])=>[k,v.n])])+`</div>`;
+    h+=area("b","Bio",x.b)+area("w","Why they matter to the research",x.w);
+    h+=`<h3>Contact</h3>`+fld("e","Public email",x.e,{type:"email"})+`<div class="grid2">`+fld("li","LinkedIn URL",x.li,{type:"url",ph:"https://www.linkedin.com/in/…"})+sel("lic","LinkedIn confidence",x.lic||"verified",Object.entries(LICN))+`</div>`;
+    h+=fld("lin","What the LinkedIn profile shows",x.lin)+`<div class="grid2">`+fld("p","Profile page",x.p,{type:"url"})+fld("c","Contact page",x.c,{type:"url"})+`</div>`+fld("x","X / social handle",x.x,{ph:"@handle"});
+    h+=`<h3>Sources and checks</h3>`+fld("src","Role source",x.src,{type:"url",hint:"The page that shows their current role. The team relies on this."})+fld("flag","Check before contacting",x.flag,{hint:"Optional warning shown on the profile."});
+  }else{
+    h+=fld("n","Name",x.n,{req:true})+`<div class="grid2">`+sel("k","Kind",x.k||"think",Object.entries(KIND).map(([k,v])=>[k,v.n]))+`<div id="partyWrap">`+sel("party","Party colour",x.party||"",[["","None"],...Object.entries(PARTY).map(([k,v])=>[k,v.n])])+`</div></div>`;
+    h+=fld("short","Short name for the map label (optional)",x.short,{ph:"e.g. CTO"})+area("d","Description",x.d)+`<div class="grid2">`+fld("u","Website",x.u,{type:"url"})+fld("c","Contact",x.c)+`</div>`;
+    h+=`<label class="check"><input type="checkbox" name="crit"${x.crit?" checked":""}> ${esc(SETTINGS.counterpoint||"Counterpoint: argues against the change this map is about")}</label>`;
+  }
+  h+=`<label class="check"><input type="checkbox" name="home"${x.home?" checked":""}> Part of your placement</label>`;
+  h+=`<h3>Connections</h3><div class="editlinks" id="edLinks"></div><div class="field"><label for="edAdd">Add a connection</label><input id="edAdd" autocomplete="off" placeholder="Type a name…"></div>`;
+  h+=`<p class="err note" id="edErr" role="alert" style="color:var(--e-counter)"></p><div class="btnrow"><button class="btn" type="submit">${isNew?"Add to map":"Save changes"}</button><button class="btn ghost" type="button" id="edCancel">Cancel</button></div></form>`;
+  panel.innerHTML=h;panel.scrollTop=0;paintLinks();
+  const back=()=>{ed=null;isNew?(setTab("overview"),renderOverview()):renderNode(byId.get(id))};
+  document.getElementById("edBack").onclick=back;document.getElementById("edCancel").onclick=back;
+  const pw=document.getElementById("partyWrap");if(pw){const k=document.getElementById("f-k");const sync=()=>pw.style.visibility=k.value==="party"?"visible":"hidden";k.onchange=sync;sync()}
+  const add=document.getElementById("edAdd");picker(add,n=>{add.value="";if(n.id===ed.id||ed.links.some(l=>l.other===n.id)){toast(n.n+" is already connected.");return}
+    ed.links.push({other:n.id,t:kind==="person"&&n.type!=="person"?"role":"work",l:"",u:""});paintLinks();setTimeout(()=>{const ins=document.querySelectorAll("#edLinks .lab-in");ins[ins.length-1]?.focus()},20)});
+  document.getElementById("edForm").addEventListener("submit",e=>{e.preventDefault();saveEditor(new FormData(e.target))});
+  document.getElementById("f-n").focus()}
+function paintLinks(){const box=document.getElementById("edLinks");if(!box)return;
+  if(!ed.links.length){box.innerHTML=`<p class="note" style="margin:0">No connections yet. A person needs at least two to stop showing as thinly sourced.</p>`;return}
+  box.innerHTML=ed.links.map((l,i)=>{const o=byId.get(l.other);return `<div class="editlink" data-i="${i}"><span class="who">${esc(o?o.n:l.other)}</span><button type="button" class="x" data-rm="${i}" aria-label="Remove connection to ${esc(o?o.n:"")}">×</button>
+    <div class="full"><select data-k="t" aria-label="Type">${Object.entries(ETYPE).map(([k,v])=>opt(k,v.n,l.t)).join("")}</select><input class="lab-in" data-k="l" value="${esc(l.l)}" placeholder="How they’re linked, e.g. Board member" aria-label="How they are linked"></div>
+    <input class="src" data-k="u" type="url" value="${esc(l.u)}" placeholder="Source link (https://…)" aria-label="Source link"></div>`}).join("");
+  box.querySelectorAll("[data-k]").forEach(inp=>inp.addEventListener("input",()=>{const i=+inp.closest(".editlink").dataset.i;ed.links[i][inp.dataset.k]=inp.value}));
+  box.querySelectorAll("[data-rm]").forEach(b=>b.onclick=()=>{ed.links.splice(+b.dataset.rm,1);paintLinks()})}
+function saveEditor(fd){const err=document.getElementById("edErr");const g=k=>(fd.get(k)||"").toString().trim();
+  const name=g("n");if(!name){err.textContent="Add a name.";document.getElementById("f-n").focus();return}
+  if(ed.kind==="person"&&!g("r")){err.textContent="Add their role.";document.getElementById("f-r").focus();return}
+  for(const k of ["e"])if(g(k)&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(g(k))){err.textContent="That email doesn’t look right.";return}
+  for(const k of (ed.kind==="person"?["li","p","c","src"]:["u"])){const v=g(k);if(v&&!/^https?:\/\//i.test(v)){err.textContent="Links need to start with https://";const el=document.getElementById("f-"+k);el&&el.focus();return}}
+  const kind=ed.kind==="person"?"person":(g("k")==="issue"?"issue":"org");
+  const id=ed.isNew?newId(name,kind):ed.id;const list=ed.kind==="person"?P:O;const old=ed.isNew?null:list.find(x=>x.id===id);
+  const rec={id,n:name};const put=(k,v)=>{if(v)rec[k]=v};
+  if(ed.kind==="person"){put("g",g("g"));put("home",fd.get("home")?1:0);put("r",g("r"));put("o",g("o"));put("s",g("s"));put("b",g("b"));put("w",g("w"));put("p",g("p"));put("e",g("e"));put("x",g("x"));put("party",g("party"));
+    put("li",g("li"));if(g("li"))put("lic",g("lic"));if(g("li"))put("lin",g("lin"));put("c",g("c"));put("src",g("src"));put("flag",g("flag"));}
+  else{put("k",g("k"));put("short",g("short"));put("home",fd.get("home")?1:0);put("d",g("d"));put("u",g("u"));put("c",g("c"));if(g("k")==="party")put("party",g("party"));put("crit",fd.get("crit")?1:0)}
+  if(old){Object.keys(old).forEach(k=>delete old[k]);Object.assign(old,rec)}else list.push(rec);
+  /* replace this node's links with the edited set, keeping each link's original direction */
+  const keep=E.filter(e=>e.a!==id&&e.b!==id);
+  const mine=ed.links.map(l=>{const e=l.orig?{a:l.orig.a,b:l.orig.b}:{a:id,b:l.other};e.t=l.t;e.l=(l.l||"").trim();e.u=(l.u||"").trim();return e});
+  DATA.edges=E=[...keep,...mine];
+  const wasNew=ed.isNew;ed=null;commitChange(`${wasNew?"Added":"Edited"} ${name}`,id)}
+function askDelete(id){const n=byId.get(id),box=document.getElementById("delBox");if(!n||!box)return;const k=E.filter(e=>e.a===id||e.b===id).length;
+  box.innerHTML=`<div class="confirm"><p style="margin:0 0 8px">Delete <b>${esc(n.n)}</b> and ${k} connection${k===1?"":"s"}? You can still discard this until you publish.</p><div class="btnrow" style="margin:0"><button class="btn danger" id="delYes">Delete</button><button class="btn ghost" id="delNo">Keep</button></div></div>`;
+  document.getElementById("delNo").onclick=()=>box.innerHTML="";
+  document.getElementById("delYes").onclick=()=>{const list=n.type==="person"?P:O;const i=list.findIndex(x=>x.id===id);if(i>=0)list.splice(i,1);DATA.edges=E=E.filter(e=>e.a!==id&&e.b!==id);commitChange(`Deleted ${n.n}`)}}
+function openSettings(){setTab(null);const st=DATA.settings||{};
+  const parties=Object.values(st.parties||{}).map(p=>`${p.n} | ${p.c||""}`).join("\n");
+  let h=`<button class="back" id="stBack">Overview</button><h2>Map settings</h2><p class="note">The words at the top of the map and a few lists. Publish afterwards like any other change.</p><form id="stForm" novalidate>`;
+  h+=fld("eyebrow","Small line above the title",st.eyebrow,{ph:"Internal · Your fellowship"})+fld("title","Map title",st.title,{req:true,ph:"e.g. Kenya Tax Justice Map"});
+  h+=fld("subtitle","One-line description",st.subtitle,{ph:"Who shapes the debate on X in Y, and how they connect"});
+  h+=fld("counterpoint","Label for organizations that argue the other side",st.counterpoint,{ph:"Counterpoint: argues against wealth taxes"});
+  h+=area("leads","Leads not yet verified (one per line)",(st.leads||[]).join("\n"),"Shown on the Overview so the team knows what is still unchecked.");
+  h+=area("parties","Political parties (one per line: Name | colour)",parties,"Use each party’s own colour, for example: Liberal | #D71920. Leave empty if you don’t need party colours.");
+  h+=`<p class="err note" id="stErr" role="alert" style="color:var(--e-counter)"></p><div class="btnrow"><button class="btn" type="submit">Save settings</button></div></form>`;
+  panel.innerHTML=h;panel.scrollTop=0;
+  document.getElementById("stBack").onclick=()=>{setTab("overview");renderOverview()};
+  document.getElementById("stForm").addEventListener("submit",e=>{e.preventDefault();const fd=new FormData(e.target);const g=k=>(fd.get(k)||"").toString().trim();
+    if(!g("title")){document.getElementById("stErr").textContent="Give the map a title.";return}
+    const pts={};for(const line of g("parties").split("\n")){const [n,c]=line.split("|").map(x=>(x||"").trim());if(!n)continue;
+      if(c&&!/^#[0-9a-f]{3}([0-9a-f]{3})?$/i.test(c)){document.getElementById("stErr").textContent=`“${c}” isn’t a colour code. Use the form #D71920.`;return}
+      const old=Object.entries(st.parties||{}).find(([,v])=>v.n===n);pts[old?old[0]:slug(n)]={n,c:c||"#888888"}}
+    const next={...st,eyebrow:g("eyebrow"),title:g("title"),subtitle:g("subtitle"),counterpoint:g("counterpoint"),leads:g("leads").split("\n").map(x=>x.trim()).filter(Boolean),parties:pts};
+    Object.keys(next).forEach(k=>{if(next[k]===""||(Array.isArray(next[k])&&!next[k].length))delete next[k]});
+    DATA.settings=next;commitChange("Updated map settings")})}
+function openDates(){setTab(null);let rows=(DATA.dates||[]).map(d=>({...d}));
+  const paint=()=>{let h=`<button class="back" id="dtBack">Overview</button><h2>Coming up</h2><p class="note">Dates in the header. Past dates hide themselves; the next three show.</p><div class="editlinks">`;
+    h+=rows.map((r,i)=>`<div class="editlink" data-i="${i}"><input type="date" data-k="date" value="${esc(r.date)}" aria-label="Date"><button type="button" class="x" data-rm="${i}" aria-label="Remove date">×</button><input class="src" data-k="text" value="${esc(r.text)}" placeholder="What happens" aria-label="What happens"></div>`).join("");
+    h+=`</div><div class="btnrow"><button class="btn ghost sm" id="dtAdd">Add a date</button></div><div class="btnrow"><button class="btn" id="dtSave">Save dates</button></div>`;
+    panel.innerHTML=h;
+    panel.querySelectorAll("[data-k]").forEach(inp=>inp.addEventListener("input",()=>{rows[+inp.closest(".editlink").dataset.i][inp.dataset.k]=inp.value}));
+    panel.querySelectorAll("[data-rm]").forEach(b=>b.onclick=()=>{rows.splice(+b.dataset.rm,1);paint()});
+    document.getElementById("dtAdd").onclick=()=>{rows.push({date:"",text:""});paint()};
+    document.getElementById("dtBack").onclick=()=>{setTab("overview");renderOverview()};
+    document.getElementById("dtSave").onclick=()=>{DATA.dates=rows.filter(r=>r.date&&r.text.trim()).map(r=>({date:r.date,text:r.text.trim()}));commitChange("Updated dates")}};
+  paint()}
+panel.addEventListener("click",e=>{if(!admin)return;const t=e.target.closest("[data-edit],[data-del],[data-add],[data-dates],[data-settings]");if(!t)return;e.stopPropagation();
+  if(t.dataset.edit){const n=byId.get(t.dataset.edit);openEditor(n.type==="person"?"person":"org",n.id)}
+  else if(t.dataset.del)askDelete(t.dataset.del);
+  else if(t.dataset.add)openEditor(t.dataset.add,null);
+  else if(t.dataset.dates)openDates()
+  else if(t.dataset.settings)openSettings()},true);
+
+/* boot */
+async function loadData(){const seed=document.getElementById("seed");if(seed)return JSON.parse(seed.textContent);
+  const r=await fetch(DATA_PATH+"?t="+Date.now(),{cache:"no-store"});if(!r.ok)throw new Error("HTTP "+r.status);return r.json()}
+function start(d){rebuild(d);
+  const st=(location.hash||"").slice(1);
+  if(st==="whole"){mode="whole";render();renderOverview()}
+  else if(st&&byId.has(st)){focus=[st];render();renderNode(byId.get(st))} else {render();renderOverview()}}
+loadData().then(d=>{const draft=adminDraft();start(draft&&adminToken()?draft.data:d);adminBoot(d)})
+  .catch(err=>{panel.innerHTML=`<div class="empty"><p>The map data didn’t load (${esc(err.message)}).</p><button class="btn" onclick="location.reload()">Try again</button></div>`});
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,306 @@
+{
+ "about": "Sample data for the stakeholder map starter. Everything here is invented. Replace it with your own, through Admin mode on your site.",
+ "checked": "",
+ "settings": {
+  "eyebrow": "Internal · Sample map",
+  "title": "Sample stakeholder map",
+  "subtitle": "Invented example data showing how the map works",
+  "counterpoint": "Counterpoint: argues against the reform",
+  "leads": [
+   "Example: the regional tenants' network. Their website lists no current staff; ask a contact.",
+   "Example: officials in the finance ministry's tax policy unit. Names not published."
+  ],
+  "parties": {
+   "party-a": {
+    "n": "Example Party A",
+    "c": "#D71920"
+   },
+   "party-b": {
+    "n": "Example Party B",
+    "c": "#1A4782"
+   }
+  }
+ },
+ "dates": [
+  {
+   "date": "2027-03-15",
+   "text": "Example: budget day"
+  }
+ ],
+ "people": [
+  {
+   "id": "amina-example",
+   "n": "Amina Example",
+   "g": "research",
+   "home": 1,
+   "r": "Director",
+   "o": "Example Research Institute",
+   "s": "expert",
+   "b": "Invented person. Write two or three plain sentences on what they do, from their own pages.",
+   "w": "Your supervisor at the placement.",
+   "p": "https://example.org/team/amina",
+   "src": "https://example.org/team/amina"
+  },
+  {
+   "id": "jonas-sample",
+   "n": "Jonas Sample",
+   "g": "research",
+   "r": "Senior Economist",
+   "o": "Example Research Institute",
+   "s": "advocate",
+   "b": "Invented person.",
+   "w": "Wrote the most-cited paper on the topic.",
+   "e": "jonas@example.org",
+   "li": "https://www.linkedin.com/in/example",
+   "lic": "medium",
+   "lin": "Shows the employer, but the job title is out of date.",
+   "src": "https://example.org/team/jonas"
+  },
+  {
+   "id": "lea-placeholder",
+   "n": "Léa Placeholder",
+   "g": "civil",
+   "r": "Campaigns Lead",
+   "o": "Example Tax Justice Network",
+   "s": "champion",
+   "b": "Invented person.",
+   "w": "Runs the national campaign.",
+   "src": "https://example.org/network/staff"
+  },
+  {
+   "id": "sam-demo",
+   "n": "Sam Demo",
+   "g": "civil",
+   "r": "Organizer",
+   "o": "Example Tenants' Union",
+   "s": "ally",
+   "b": "Invented person. The kind of local grassroots contact the map should make visible.",
+   "w": "Works on rent and cost of living locally.",
+   "src": "https://example.org/tenants/about"
+  },
+  {
+   "id": "rita-model",
+   "n": "Rita Model",
+   "g": "politics",
+   "r": "Member of Parliament",
+   "o": "Finance Committee",
+   "party": "party-a",
+   "s": "gatekeeper",
+   "b": "Invented person.",
+   "w": "Sits on the committee that studies the bill.",
+   "src": "https://example.org/parliament/rita"
+  },
+  {
+   "id": "omar-test",
+   "n": "Omar Test",
+   "g": "politics",
+   "r": "Member of Parliament",
+   "o": "Finance Committee",
+   "party": "party-b",
+   "s": "opponent",
+   "b": "Invented person.",
+   "w": "Spoke against the proposal in committee.",
+   "src": "https://example.org/parliament/omar"
+  },
+  {
+   "id": "nadia-mock",
+   "n": "Nadia Mock",
+   "g": "media",
+   "r": "Economics Reporter",
+   "o": "Example Daily",
+   "s": "neutral",
+   "b": "Invented person.",
+   "w": "Covers tax and inequality.",
+   "src": "https://example.org/daily/nadia"
+  },
+  {
+   "id": "pat-fictional",
+   "n": "Pat Fictional",
+   "g": "business",
+   "r": "Chief Economist",
+   "o": "Example Business Council",
+   "s": "critic",
+   "b": "Invented person.",
+   "w": "Main public voice on the other side.",
+   "src": "https://example.org/council/pat",
+   "flag": "Example of a check-before-contacting note."
+  }
+ ],
+ "orgs": [
+  {
+   "id": "o-example-institute",
+   "n": "Example Research Institute",
+   "short": "ERI",
+   "k": "think",
+   "home": 1,
+   "d": "Invented organization: your placement.",
+   "u": "https://example.org/"
+  },
+  {
+   "id": "o-example-network",
+   "n": "Example Tax Justice Network",
+   "short": "ETJN",
+   "k": "ngo",
+   "home": 1,
+   "d": "Invented national coalition: your second placement.",
+   "u": "https://example.org/network"
+  },
+  {
+   "id": "o-example-tenants",
+   "n": "Example Tenants' Union",
+   "k": "ngo",
+   "d": "Invented local grassroots group.",
+   "u": "https://example.org/tenants"
+  },
+  {
+   "id": "o-finance-committee",
+   "n": "Finance Committee",
+   "k": "parl",
+   "d": "Invented parliamentary committee.",
+   "u": "https://example.org/parliament"
+  },
+  {
+   "id": "o-example-daily",
+   "n": "Example Daily",
+   "k": "media",
+   "d": "Invented newspaper.",
+   "u": "https://example.org/daily"
+  },
+  {
+   "id": "o-business-council",
+   "n": "Example Business Council",
+   "k": "think",
+   "crit": 1,
+   "d": "Invented business lobby that argues the other side.",
+   "u": "https://example.org/council"
+  },
+  {
+   "id": "i-example-bill",
+   "n": "Example Bill C-1",
+   "k": "issue",
+   "d": "Invented live file: a bill linking several people.",
+   "u": "https://example.org/parliament/bill-c-1"
+  }
+ ],
+ "edges": [
+  {
+   "a": "amina-example",
+   "b": "o-example-institute",
+   "t": "role",
+   "l": "Director",
+   "u": "https://example.org/team/amina"
+  },
+  {
+   "a": "jonas-sample",
+   "b": "o-example-institute",
+   "t": "role",
+   "l": "Senior Economist",
+   "u": "https://example.org/team/jonas"
+  },
+  {
+   "a": "jonas-sample",
+   "b": "o-example-network",
+   "t": "board",
+   "l": "Board member",
+   "u": "https://example.org/network/board"
+  },
+  {
+   "a": "jonas-sample",
+   "b": "o-example-tenants",
+   "t": "board",
+   "l": "Volunteer adviser on tax questions",
+   "u": "https://example.org/tenants/advisers"
+  },
+  {
+   "a": "lea-placeholder",
+   "b": "o-example-network",
+   "t": "role",
+   "l": "Campaigns Lead",
+   "u": "https://example.org/network/staff"
+  },
+  {
+   "a": "lea-placeholder",
+   "b": "o-example-tenants",
+   "t": "ally",
+   "l": "Joint cost-of-living event",
+   "u": "https://example.org/tenants/events"
+  },
+  {
+   "a": "sam-demo",
+   "b": "o-example-tenants",
+   "t": "role",
+   "l": "Organizer",
+   "u": "https://example.org/tenants/about"
+  },
+  {
+   "a": "sam-demo",
+   "b": "i-example-bill",
+   "t": "parl",
+   "l": "Testified on the bill",
+   "u": "https://example.org/parliament/bill-c-1/witnesses"
+  },
+  {
+   "a": "rita-model",
+   "b": "o-finance-committee",
+   "t": "parl",
+   "l": "Committee member",
+   "u": "https://example.org/parliament/rita"
+  },
+  {
+   "a": "rita-model",
+   "b": "i-example-bill",
+   "t": "parl",
+   "l": "Sponsored the bill",
+   "u": "https://example.org/parliament/bill-c-1"
+  },
+  {
+   "a": "omar-test",
+   "b": "o-finance-committee",
+   "t": "parl",
+   "l": "Committee member",
+   "u": "https://example.org/parliament/omar"
+  },
+  {
+   "a": "omar-test",
+   "b": "o-business-council",
+   "t": "counter",
+   "l": "Cited the council's report in committee",
+   "u": "https://example.org/parliament/bill-c-1/debate"
+  },
+  {
+   "a": "amina-example",
+   "b": "i-example-bill",
+   "t": "parl",
+   "l": "Testified on the bill",
+   "u": "https://example.org/parliament/bill-c-1/witnesses"
+  },
+  {
+   "a": "nadia-mock",
+   "b": "o-example-daily",
+   "t": "role",
+   "l": "Economics Reporter",
+   "u": "https://example.org/daily/nadia"
+  },
+  {
+   "a": "nadia-mock",
+   "b": "jonas-sample",
+   "t": "media",
+   "l": "Interviewed him on the bill",
+   "u": "https://example.org/daily/article"
+  },
+  {
+   "a": "pat-fictional",
+   "b": "o-business-council",
+   "t": "role",
+   "l": "Chief Economist",
+   "u": "https://example.org/council/pat"
+  },
+  {
+   "a": "pat-fictional",
+   "b": "i-example-bill",
+   "t": "counter",
+   "l": "Wrote against the bill",
+   "u": "https://example.org/council/brief"
+  }
+ ]
+}
